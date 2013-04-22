@@ -80,7 +80,7 @@ $ptabs=array(
 		),
 
 );
-if(elgg_is_active_plugin('wiki')&&is_project_member($guid, elgg_get_logged_in_user_guid())){
+if(elgg_is_active_plugin('wiki')){
 	$ptabs['wiki']=array(
 			'text'=>elgg_echo('wiki'),
 			'href'=>'wiki/project/'.$guid,

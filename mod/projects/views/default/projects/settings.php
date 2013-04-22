@@ -3,11 +3,6 @@
 $guid=$vars['project_guid'] ;
 $content=$vars['content'] ;
 $stabs=array(
-		'Mbackers' => array(
-				'text' => elgg_echo('Funding Backers'),
-				'href' => 'projects/setting/money_backers/'.$guid,
-				'priority' => 600,
-		),
 		
 		'Ftbackers' => array(
 				'text' => elgg_echo('Remove Backers'),
@@ -39,7 +34,12 @@ $stabs=array(
 				'priority' => 50,
 		
 		),
+		'edit' => array(
+				'text' =>elgg_echo('Edit Project'),
+				'href' => 'projects/edit/'.$guid,
+				'priority' => 100,
 		
+		),
 		'Basic' => array(
 				'text' =>elgg_echo('Basic Setting'),
 				'href' => 'projects/setting/basic/'.$guid,
@@ -58,14 +58,18 @@ foreach ($stabs as $name => $stab) {
 
 $menu=elgg_view_menu('stabs',array('sort_by' => 'priority','class'=>'project-setting-tab'));
 // nav 
-$nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
+//$nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
+
+// delete project button
+$delp=elgg_view('output/confirmlink',array('href'=>'action/projects/delete?guid='.$guid,'is_action'=>true,'text'=>'Delete Project','class'=>'elgg-button-submit elgg-button mtl'));
 
 $body=<<<html
 <div class="w200 fr mtl mrl">
 $menu
+$delp
 </div>
 <div style="width:70%" class="fl mll pas">
-$nav
+
 $content
 </div>
 

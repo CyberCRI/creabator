@@ -180,8 +180,9 @@ function projects_init() {
     elgg_register_js('angular','https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js','head');
 
    
+    // shorten the url of the project page
   
-    
+    elgg_register_page_handler('p', 'project_shorten_url_page_handler');
 
 }
 
@@ -383,6 +384,14 @@ function projects_page_handler($page) {
 	return true;
 }
 
+function project_shorten_url_page_handler($page){
+	$pages = dirname(__FILE__) . '/pages/projects';
+	$title=$page[0];
+	// @todo get projects base on name ?
+	
+	
+}
+
 /**
  * Forward to the new style of URLs
  *
@@ -426,6 +435,7 @@ function project_url($entity) {
 	$title = $entity->title;
 	$title = elgg_get_friendly_title($title);
 	return $CONFIG->url . "projects/view/" . $entity->getGUID() . "/" . $title;
+	//return $CONFIG->url.'p/'.$title;
 }
 
 function blogs_url($entity) {

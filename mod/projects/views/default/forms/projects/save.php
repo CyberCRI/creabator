@@ -19,6 +19,9 @@ $container_guid = elgg_extract('container_guid', $vars);
 
 $guid = elgg_extract('guid', $vars, null);
 $project=get_entity($guid);
+if($guid){
+	$f_title=elgg_view_title(elgg_echo('projects:edit'));
+}
 
 $categories = elgg_view('input/categories', $vars);
 $f_cat='';
@@ -27,11 +30,10 @@ if ($categories) {
 }
 
 
-?>
-<div class="container">
 
-<div class=" content pal brm ">
-	<?php echo elgg_view_title(elgg_echo('projects:add')); ?>
+?>
+<div class=" content  brm ">
+	<?php echo $f_title; ?>
 	<div class="pam">
 	<div class="pbm">Title :</div>
 		<?php echo elgg_view('input/text', array('name' => 'title', 'value' => $title,'id'=>'title','class'=>'required  elgg-autofocus'));  ?> 
@@ -97,7 +99,7 @@ if ($categories) {
        </div>          
     
   </div>       
-</div>
+
 		
 <script type="text/javascript">
 $(function(){
