@@ -12,13 +12,13 @@
     	
         elgg_extend_view('css/elgg', 'ib_index/css');
      
+        // registe this hook to replace the default index system
         elgg_register_plugin_hook_handler('index', 'system', 'ib_index');
  
+        //extend the login view with the social login (twitter, facebook,ect)
        	elgg_extend_view( 'forms/index-login'   , 'elgg_social_login/login' );
        
        //register ajax view for projects listing in the font page
-       
-     
        	elgg_register_ajax_view('projects/list');
        
     

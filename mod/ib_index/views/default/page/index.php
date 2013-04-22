@@ -32,8 +32,7 @@ header("Content-type: text/html; charset=UTF-8");
 <?php foreach ($css as $link) { ?>
 	<link rel="stylesheet" href="<?php echo $link; ?>" type="text/css" />
 <?php } 
-$siteurl=elgg_get_site_entity();
-//$scripts[0]=$siteurl.'vendors/jquery/jquery-1.6.4.min.js';
+$siteurl=elgg_get_site_url();
 $scripts[1]=$siteurl.'mod/ib_index/js/slide.js';
 $scripts[2]=$siteurl.'mod/ib_index/js/slides.min.jquery.js';
 foreach ($scripts as $script){

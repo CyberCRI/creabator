@@ -1,9 +1,7 @@
 <?php
 /**
- * Elgg login form
+ * Index login form
  *
- * @package Elgg
- * @subpackage Core
  */
 ?>
 
