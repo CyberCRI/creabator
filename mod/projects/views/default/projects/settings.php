@@ -3,21 +3,9 @@
 $guid=$vars['project_guid'] ;
 $content=$vars['content'] ;
 $stabs=array(
-		
-		'Ftbackers' => array(
-				'text' => elgg_echo('Remove Backers'),
-				'href' => 'projects/setting/remove_backer/'.$guid,
-				'priority' => 500,
-		),
-
-		'Fbrequest' => array(
-				'text' => elgg_echo('Tool Requests'),
-				'href' => 'projects/setting/fbacker_request/'.$guid,
-				'priority' => 400,
-		),
 
 		'membership' => array(
-				'text' =>elgg_echo('Participant Requests'),
+				'text' =>elgg_echo('Team Requests'),
 				'href' => 'projects/setting/requests/'.$guid,
 				'priority' => 300,
 
@@ -41,7 +29,7 @@ $stabs=array(
 		
 		),
 		'Basic' => array(
-				'text' =>elgg_echo('Basic Setting'),
+				'text' =>elgg_echo('Widget Setting'),
 				'href' => 'projects/setting/basic/'.$guid,
 				'priority' => 100,
 

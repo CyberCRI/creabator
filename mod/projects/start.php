@@ -15,11 +15,12 @@ elgg_register_event_handler('init', 'system', 'projects_init');
  */
 function projects_init() {
 
+	// register the lib function for the prjoect module (like youtube upload module function)
 	$root = dirname(__FILE__);
 	elgg_register_library('elgg:projects', "$root/lib/projects.php");
 	
 
-	// actions
+	// register all the actions
 	$action_path = "$root/actions";
 	elgg_register_action('projects/save', "$action_path/projects/save.php");
 	elgg_register_action('projects/delete', "$action_path/projects/delete.php");
@@ -28,7 +29,7 @@ function projects_init() {
   	
   
 	
-	// twitter action	
+	// twitter action,save the account in the twiiter widget
 	elgg_register_action('projects/twitter', "$action_path/projects/twitter.php");
 	
 	//reward action
@@ -38,51 +39,51 @@ function projects_init() {
 	//updates action
 	elgg_register_action('projects/updates', "$action_path/projects/updates.php");
 
-	//blog action
+	//add blog action
 	elgg_register_action('projects/blogs', "$action_path/projects/blogs.php");
 
-	//apply action
+	//apply the team membership 
 	elgg_register_action('projects/apply', "$action_path/projects/apply.php");
 
 	
-	// lend action
+	// lend facility action
 	elgg_register_action('projects/lend', "$action_path/projects/lend.php");
 
-	//featured action
+	//make project as feature project, only for the admin
 	elgg_register_action('projects/featured', "$action_path/projects/featured.php", 'admin');
-	//approve action
+	
+	//activated the project(for the old version)
 	elgg_register_action('projects/approve', "$action_path/projects/approve.php");
 
-	//project resource action
+	//project resource action, didn't user now, remain it in case someday we user it again.
 	elgg_register_action('projects/addresource', "$action_path/projects/resource/add.php");
 	elgg_register_action('projects/deleteresource', "$action_path/projects/resource/delete.php");
 	
     //fix the bug of the updates comment forward,register the comment action
     elgg_register_action('comments/delete', "$action_path/comments/delete.php");
 	
- 	 // register action for membership
+ 	 // register action for membership (join a project group or leave a project group)
     elgg_register_action("projects/leave", "$action_path/projects/membership/leave.php");
     elgg_register_action("projects/remove", "$action_path/projects/membership/remove.php");
     elgg_register_action("projects/killrequest", "$action_path/projects/membership/delete_request.php");
     elgg_register_action("projects/addtoproject", "$action_path/projects/membership/add.php");
 
-    // register action for fbackers
+    // register action for facility backer, didn't use this time
     elgg_register_action("projects/fbleave", "$action_path/projects/fbacker/leave.php");
     elgg_register_action("projects/fbremove", "$action_path/projects/fbacker/remove.php");
     elgg_register_action("projects/killfbacker", "$action_path/projects/fbacker/delete_request.php");
     elgg_register_action("projects/addfbacker", "$action_path/projects/fbacker/add.php");
     
-	
+	// the basic setting page action
 	elgg_register_action("projects/basic","$action_path/projects/basic.php");
 	
-	//reward plan action (projects/reward)
+	//setting page of small help as well as facility
 	elgg_register_action("projects/help","$action_path/projects/help.php");
 	
-	//reward plan action (projects/basic)
+	//in the setting page, uploading the poster
 	elgg_register_action("projects/poster","$action_path/projects/poster.php");
 	
-	//register refresh action (projects/refresh)
-	elgg_register_action("projects/refresh","$action_path/projects/refresh.php");
+	
 	
 	//register required task action
 	elgg_register_action("task/add","$action_path/projects/task/add.php");
@@ -93,7 +94,7 @@ function projects_init() {
 	// set as long term project action
 	elgg_register_action("projects/longterm","$action_path/projects/longterm.php",'admin');
 	
-    // menus
+    // register site menus
 	elgg_register_menu_item('site', array(
 		'name' => 'projects',
 		'text' => elgg_echo('Projects'),
@@ -102,11 +103,13 @@ function projects_init() {
 
 	elgg_register_plugin_hook_handler('register', 'menu:page', 'projects_page_menu');
 
+	// register the page handler, like "projects/all" ,"projects/add" etc
 	elgg_register_page_handler('projects', 'projects_page_handler');
 
+	// register the css, you could find this file in mod/projects/views/default/projects/css.php
 	elgg_extend_view('css/elgg', 'projects/css');
-	elgg_extend_view('js/elgg', 'projects/js');
 
+	// reigister the widget which show in the profile page
 	elgg_register_widget_type('projects', elgg_echo('Projects(Owner)'), elgg_echo('projects:widget:description'));
 	elgg_register_widget_type('memberofprojects', elgg_echo('Projects(Participate)'), elgg_echo('projects:widget:description'));
 	
@@ -116,14 +119,14 @@ function projects_init() {
 
 	// Listen to notification events and supply a more useful message
 	elgg_register_plugin_hook_handler('notify:entity:message', 'object', 'projects_notify_message');
+	
 	// project icon
-
 	elgg_register_plugin_hook_handler('entity:icon:url', 'object', 'projects_icon_url_override');
 	// Register an icon handler for projects
 	elgg_register_page_handler('projecticon', 'projects_icon_handler');
 	//elgg_register_page_handler('projectimg', 'projects_img_handler');
 
-	// Register a URL handler for projects
+	// Register a URL handler for projects, rewrite the url when you call getURL() method
 	elgg_register_entity_url_handler('object', 'projects', 'project_url');
 
 	// Register a URL handler for projects blogs
@@ -135,22 +138,18 @@ function projects_init() {
 	// Register entity type for search
 	elgg_register_entity_type('object', 'projects');
 
-	//add the featured link
-
+	//add the featured link so that the admin could feature the project
 	elgg_register_plugin_hook_handler('register', 'menu:entity', 'projects_entity_menu_setup');
-
 
    //register catalog page handler
    elgg_register_page_handler('categories', 'project_categories_page_handler');
    
- 
    //add delete link to the resource
    elgg_register_plugin_hook_handler('register', 'menu:annotation', 'resource_annotation_menu_setup');
    
-    //register ajax view for admin project page
+    //register ajax view for admin project page (didn't user this function yet)
     elgg_register_ajax_view('ajax/frozen');
     elgg_register_ajax_view('ajax/recommened');
-
     
     // project view main page ajax view page 
     elgg_register_ajax_view('ajax/view/twitter');
@@ -176,13 +175,11 @@ function projects_init() {
     // register project permission plugin handler
     elgg_register_plugin_hook_handler("project:permission", "all", 'check_project_view_permission','1');
 
-    //register anular js
+    //register angular js for the project list page
     elgg_register_js('angular','https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js','head');
 
    
-    // shorten the url of the project page
   
-    elgg_register_page_handler('p', 'project_shorten_url_page_handler');
 
 }
 
@@ -384,13 +381,7 @@ function projects_page_handler($page) {
 	return true;
 }
 
-function project_shorten_url_page_handler($page){
-	$pages = dirname(__FILE__) . '/pages/projects';
-	$title=$page[0];
-	// @todo get projects base on name ?
-	
-	
-}
+
 
 /**
  * Forward to the new style of URLs
@@ -633,7 +624,7 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 			'annotation_name'=>'team',
 			'count'=>True
 	));
-	
+	$t_proccess=number_format((($team_done)/($team_total))*100);
 		//micro help
 	$task_done=done_item($guid,'task');
 	$task_total=elgg_get_annotations(array(
@@ -643,37 +634,26 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 			'annotation_name'=>'task',
 			'count'=>True
 	));
+	$task_proccess=number_format(($task_done/$task_total)*100);
+	/*
 	if($team_total==0 && $task_total==0){
 		$t_proccess=0;
 	}else{
 	// add some 5 times for the team member
 		$t_proccess=number_format(((($team_done+1)*5+$task_done)/(($team_total+1)*5+$task_total))*100);
 	}
+	*/
 	
-	
-	// tool proccess
-	$tool_done=done_item($guid,'tool');
-	$tool_total=elgg_get_annotations(array(
-			'type'=>'object',
-			'subtype'=>'projects',
-			'guid'=>$guid,
-			'annotation_name'=>'tool',
-			'count'=>True
-	));
-	$f_proccess=number_format(($tool_done/$tool_total)*100);
 
-	
 	$site_url=elgg_get_site_url();
 
-	$team_backup=project_backup_icon_with_link("/mod/incubator_theme/graphics/team.png", "Join this team", $site_url.'projects/apply/'.$guid, "height:$height;float:left;margin:5px 1px;");
-	$facility_backup=project_backup_icon_with_link("/mod/incubator_theme/graphics/facility.png", "Lend facility to this project", $site_url.'projects/lend/'.$guid, "height:$height;float:left;margin:5px 1px;");
-	
+
 	$style="display:inline-block;width:$width;height:$height";
 	$class0="grey pas brs";
 	if($class1){
 		$class0=$class1;
 	}
-	$class2="mls mts";
+	$class2="mbs";
 	if($class){
 		$class2=$class;
 	}
@@ -683,19 +663,15 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 
 	<div class="$class0" style="line-height:1">
 	
-
-	<div style="$style" class="progress-bar team orange fl">
-	<span style="width: $t_proccess%"><div class="$class2">$t_proccess%</div></span>
+	<div class="$class2" style="color:#666" >Team:$t_proccess% ($team_done/$team_total)</div>
+	<div style="$style" class="progress progress-info fl">
+	 <div class="bar" style="width:$t_proccess%"></div>
 	</div>
-	$team_backup
-
-
-	<div style="$style" class="progress-bar blue facility fl">
-	<span style="width:$f_proccess%;" ><div class="$class2">$f_proccess%</div></span>
-	</div>
-
-	$facility_backup
 	
+	<div class="$class2" style="color:#666">Task:$task_proccess%($task_done/$task_total)</div>
+	<div style="$style" class="progress progress-success fl">
+	 <div class="bar" style="width:$task_proccess%"></div>
+	</div>
 	
 	<div class="clearfloat"></div>
 	</div>

@@ -23,8 +23,8 @@ $lists=<<<html
 	<div id="output_team"></div>
 </div>
 
-<h2>Small help that you needed</h2>
-<blockquote>small help is help that could be done within 15 minutes.</blockquote>
+<h2>Open Task</h2>
+<blockquote>Open task is the task that you want to get help from the crowed and it's better that could be done within 15 mins.</blockquote>
 
 <div class="pam grey mbm">
 <textarea name="task" id="task" placeholder="Example:I need your help to design a logo."></textarea>
@@ -32,13 +32,7 @@ $lists=<<<html
 	<div id="output_task"></div>
 </div>
 
-<h2> Needed Tools</h2>
-<blockquote>Example:I want to use the microscope for one hours each day within one week.</blockquote>
-<div class="pam grey mbm">
-<textarea name="tool" id="tool" placeholder="Example:I want to use the microscope for one hours each day within one week."></textarea>
-<input type='submit' id="submit_tool" class="blue-button" value="Add">
-	<div id="output_tool"></div>
-</div>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -82,13 +76,7 @@ $(document).ready(function(){
         add_task('task');
 	})
 	
- load_tasks('tool');
- $("#submit_tool").click(function(){
-        add_task('tool');
-	})
- 
 
-	
 	
 
 	

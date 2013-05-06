@@ -70,7 +70,7 @@ $tasks=array_reverse($undone);
 	
 
 //$title=elgg_view('output/url',array('href'=>'projects/required/'.$guid,'text'=>elgg_echo('Team we looking for'),'title'=>elgg_echo('Team we looking for')));
-$title=elgg_echo('Team we looking for');
+$title=elgg_echo('Team we needed:');
 $micro_helps=elgg_view_module('aside', $title, $help,array('class'=>'mtm'));
 echo $micro_helps;
 }

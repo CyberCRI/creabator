@@ -54,7 +54,7 @@ function projects_prepare_form_vars($project = null) {
 
 
 
-/*
+/* Get related objects base on the tags
  * $guid the guid of the object
  * $vars array();
  */

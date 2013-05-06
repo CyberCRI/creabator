@@ -23,32 +23,32 @@
             <option value="time_created">Newest</option>
             <option value="title">Alphabetically</option>
             <option value="teamProgress">Team Proccess</option>
-            <option value="facilityProgress">Facility Proccess</option>
+            <option value="taskProgress">Task Proccess</option>
           </select>
     </div>   
   <ul class="mtl">
   	<li ng-repeat="project in projects | filter:query | orderBy:orderProp:true " class="well well-small elgg-gird">
   	
 	  		<div class="elgg-col-1of6 elgg-col">
-	  			<a href="$siteurl/projects/view/{{project.guid}}"><img ng-src="{{project.iconurl}}" width=160 height=160 /></a>
+	  			<a href="{$siteurl}projects/view/{{project.guid}}"><img ng-src="{{project.iconurl}}" width=160 height=160 /></a>
 	  		</div>
 	  		
 	  		<div class="elgg-col-1of2 elgg-col">
 	  			<div class="pam">
-	  			<h3><a href="$siteurl/projects/view/{{project.guid}}">{{project.title}}</a></h3>
+	  			<h3><a href="{$siteurl}projects/view/{{project.guid}}">{{project.title}}</a></h3>
 	  			<div class="grey">{{project.brief}}</div>
 	  			Created by <a href="$siteurl/profile/{{project.owneruser}}">{{project.ownername}}</a> in {{project.friendly_time}}.
 	  			</div>
 	  		</div>
 	  	
 	  		<div class="elgg-col-1of3 elgg-col">
-	                   <div class="w200">Team：{{project.teamProgress}}%</div>
+	                   <div class="w200">Team：{{project.teamProgress}}%({{project.teamdone}}/{{project.teamtotal}})</div>
 	                        <div class="progress progress-info span3">
 	                         <div class="bar" style="width: {{project.teamProgress}}%"></div>
 	                      	</div>
-	                     <div class="w200">Facility：{{project.facilityProgress}}%</div>
+	                     <div class="w200">Task：{{project.taskProgress}}%({{project.taskdone}}/{{project.tasktotal}})</div>
 	                        <div class="progress progress-success span3">
-	                      <div class="bar" style="width: {{project.facilityProgress}}%"></div>
+	                      <div class="bar" style="width: {{project.taskProgress}}%"></div>
 	                      </div>
 	  		</div>
 	  		
@@ -95,7 +95,16 @@ if($projects){
 				'annotation_name'=>'team',
 				'count'=>True
 		));
-		//micro help
+		if($team_total==0){
+			$t_proccess=0;
+		}else{
+		$t_proccess=number_format(($team_done/$team_total)*100);
+		}
+		$export->teamtotal=$team_total;
+		$export->teamdone=$team_done;
+		$export->teamProgress=$t_proccess;
+		
+		//open task
 		$task_done=done_item($guid,'task');
 		$task_total=elgg_get_annotations(array(
 				'type'=>'object',
@@ -104,25 +113,14 @@ if($projects){
 				'annotation_name'=>'task',
 				'count'=>True
 		));
-		if($team_total==0 && $task_total==0){
-			$t_proccess=0;
+		if($task_total==0){
+			$task_proccess=0;
 		}else{
-			// add some 5 times for the team member
-			$t_proccess=number_format(((($team_done+1)*5+$task_done)/(($team_total+1)*5+$task_total))*100);
+		$task_proccess=number_format(($task_done/$task_total)*100);
 		}
-		$export->teamProgress=$t_proccess;
-		// tool proccess
-		$tool_done=done_item($guid,'tool');
-		$tool_total=elgg_get_annotations(array(
-				'type'=>'object',
-				'subtype'=>'projects',
-				'guid'=>$guid,
-				'annotation_name'=>'tool',
-				'count'=>True
-		));
-		$f_proccess=number_format(($tool_done/$tool_total)*100);
-		$export->facilityProgress=$f_proccess;
-
+		$export->tasktotal=$task_total;
+		$export->taskdone=$task_done;
+		$export->taskProgress=$task_proccess;
 
 		$data[]=$export;
 	}

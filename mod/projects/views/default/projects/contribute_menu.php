@@ -5,11 +5,7 @@
  */
 $tabs = array(
 	
-	'facility' => array(
-				'text' => elgg_echo('project:contribute:facility'),
-				'href' => 'projects/contribute?filter=facility',
-				'priority' => 400,
-	),
+	
 	'team' => array(
 		'text' => elgg_echo('project:contribute:team'),
 		'href' => 'projects/contribute?filter=team',
