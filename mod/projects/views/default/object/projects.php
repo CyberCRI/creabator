@@ -21,7 +21,7 @@ $title=$project->title;
 
 $project_icon=elgg_view_entity_icon($project, 'large',array('img_class'=>'project-img-frame '));
 $videoid=$project->videoid;
-$briefdes = $project->briefdes;
+
 $plan = elgg_view('output/longtext', array('value' => $project->plan));
 $plan_excerpt=elgg_get_excerpt($plan,800);
 $ytlink='http://www.youtube.com/embed/'.$videoid;
@@ -56,7 +56,7 @@ $gallery_img="<div style='line-height:0'><a href='{$project->getURL()}' ><img al
 $index_img=project_backup_icon_with_link($project->getIconURL('large'), $title, $project->getURL(), "width:100%;height:100%");
 
 $presentation=elgg_echo('project:presentation');
-$brieftitle=elgg_echo('project:brief');
+
 $followtitle=elgg_echo('project:follow');
 $cooltitle=elgg_echo('project:cool');
 
@@ -73,6 +73,8 @@ if($group instanceof ElggGroup){
 	$group_sign="<div class='group_sign'>{$group->name}</div>";
 }
 
+
+
 if ($full&& !elgg_in_context('gallery')&&!elgg_in_context('index-list')) {
 	// full project view
 	$body = <<<HTML
@@ -83,11 +85,8 @@ if ($full&& !elgg_in_context('gallery')&&!elgg_in_context('index-list')) {
 			<div class="clear"></div>
 			
 			
-			<h3 class="dashed mtl mbm f20 grey brs pas">$presentation</h3>
+			<h3 class="dashed mtl mbm f20 grey brs pas">$followtitle</h3>
 			<div class="mlm">
-				<h4 class="dashed">$brieftitle</h3>
-				<div class="f16 pam">$briefdes </div>
-				 <h4 class="dashed">$followtitle</h3>
 	
 				<div class="pas">$plan</div>
 			</div>

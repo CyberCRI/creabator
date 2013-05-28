@@ -1,38 +1,28 @@
 <?php
 $guids=$vars['guids'];
 
-
-$i=0;
-$total=count($guids);
-while($i<$total){
-	$ud=Undone_contribute($guids[$i], 'task');
-	if($ud){
-	$undones_tasks=$ud;
-		foreach($undones_tasks as $undone_task){
-			$undones[]=$undone_task;
+foreach($guids as $guid){
+$issues=elgg_get_entities_from_metadata(array('type'=>'object','subtype'=>'issue','container_guid'=>$guid,'metadata_name'=>'done','metadata_value'=>'0','limit'=>'0'));
+	if($issues){
+		foreach($issues as $issue){
+		$undones[]=$issue;
 		}
 	}
-    $i++;
 }
-
-//print_r($undones);
-
 
 
 if($undones){
 	$list="<ul >";
 	foreach ($undones as $undone){
-		$guid=$undone->entity_guid;
-		//$owner=get_entity($undone->owner_guid);
-		//$owner_icon=elgg_view_entity_icon($owner,'small');
+		$guid=$undone->container_guid;
+		$utitle=elgg_view('output/url',array('href'=>elgg_get_site_url().'projects/issues/view/'.$undone->guid,'text'=>$undone->title,'target'=>'_blank'));
 		$project=get_entity($guid);
-		$p_title="From: {$project->title}";
-		$p_link=elgg_view('output/url',array('href'=>$project->getURL(),'text'=>'View Project','style'=>'color:#ccc','class'=>'fr'));
+		$p_title="Project: {$project->title}";
+		$p_link=elgg_view('output/url',array('href'=>$project->getURL(),'text'=>'View Project','style'=>'color:#ccc','class'=>'fr','target'=>'blank'));
 		$p_brief=$project->briefdes;
-		$list_link=elgg_view('output/url',array('href'=>"projects/apply/{$guid}?id={$undone->id}",'text'=>'HelpUs','id'=>"del-{$undone->id}",'class'=>'orange-button fr'));
 		
 		$list.= "<li class='mts mbs pam grey brm' style='width:98%'>";
-		$list.= "<div class='dashed' style='font-size:1.2em' >{$undone->value}$list_link</div>";
+		$list.= "<div class='dashed'>$utitle</div>";
 		$list.= "<div style='color:#ccc'>$p_title  $p_link</div>";
 		$list.= "</li>";
 

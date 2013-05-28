@@ -2,9 +2,8 @@
  
     function incubator_theme_init() {
         elgg_extend_view('css/elgg', 'incubator_theme/css');
-     
-
-      
+   
+   // register the page handler   
        elgg_register_page_handler('about', 'about_page_handler');
        elgg_register_page_handler('contact', 'contact_page_handler');
        elgg_register_page_handler('service', 'service_page_handler');
@@ -14,47 +13,52 @@
        elgg_register_page_handler('faq', 'faq_page_handler');
     
      
-       	// replace the default js
+    // replace the default js
        elgg_register_js('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js');
        elgg_register_js('jquery.form', '//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.09/jquery.form.js');
        elgg_register_js('jquery-ui', '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js');
-       
+
+       //cache the css view
        elgg_register_simplecache_view('incubator_theme/css');
        elgg_register_simplecache_view('page/elements/header');
-       // action
+
+     // register feedback action
        $root = dirname(__FILE__);
        elgg_register_action('feedback', "$root/actions/feedback.php");
        
-       //ajax controller page
+       //ajax controller page ,@todo: it's better to use this function: elgg_register_ajax_view,
       elgg_register_page_handler('ib_ajax', 'ajax_page_handler');
-       elgg_register_library('elgg:ib_ajax', "$root/lib/ib_ajax.php");
+      //register lib for handling the request from the page handler
+      elgg_register_library('elgg:ib_ajax', "$root/lib/ib_ajax.php");
        
-       //re-register river page
+       //overwrite the default river page
        elgg_register_page_handler('activity', 'river_page_handler');
        
-       //re-construct the notification setting page
+       //overwrite the default notification setting page
        elgg_register_page_handler('notifications', 'ib_notifications_page_handler');
-       // re-construct the avater and profile edit page
+       // overwrite the default  avater and profile edit page
        elgg_register_page_handler('avatar', 'ib_avatar_page_handler');
        elgg_register_page_handler('profile', 'ib_profile_page_handler');
+
+       // overwrite the default  settings page
        elgg_register_page_handler('settings', 'ib_usersettings_page_handler');
        
        
-       //unregister the file page handler and menu and widget
-      // elgg_unregister_page_handler('file');
+       //unregister the file page handler and menu and widget so that it will not apprear in the profile page
        elgg_unregister_plugin_hook_handler('register', 'menu:owner_block', 'file_owner_block_menu');
        elgg_unregister_widget_type('filerepo');
        
        
-       // re-construct the friends and friendsof page
+       // overwrite the default friends and friendsof page
        elgg_register_page_handler('friends', 'ib_friends_page');
        elgg_register_page_handler('friendsof', 'ib_friendsof_page');
        
+       // // overwrite the default collections and invite page
        elgg_register_page_handler('collections', 'ib_collections_page_handler');
        elgg_register_page_handler('invite', 'ib_invitefriends_page_handler');
        
        
-       //register widget
+       //register the friends of widget in the profile page
        elgg_register_widget_type('friendsof', elgg_echo("Followers"), elgg_echo("follower:widget:description"));
        
     
@@ -99,6 +103,7 @@ function river_page_handler() {
 }
 
 function ib_friends_page($page) {
+	//get the route params form the url
 	$username=$page[0];
 	$user=get_user_by_username($username);
 	set_page_owner($user->getGUID());
@@ -115,6 +120,7 @@ function ib_friendsof_page($page) {
 
 
 function ib_collections_page_handler($page) {
+	// set the context to friends 
 	elgg_set_context('friends');
 	$base = elgg_get_config('path');
 	if (isset($page[0])) {
@@ -140,6 +146,7 @@ return false;
 
 
 function ib_invitefriends_page_handler($page) {
+	// block only for the login user
 	gatekeeper();
 
 	elgg_set_context('friends');
@@ -160,6 +167,7 @@ function ib_invitefriends_page_handler($page) {
 }
 
 function ajax_page_handler($page){
+	// load the lib (check this in the lib/ib_ajax.php
 	elgg_load_library('elgg:ib_ajax');
 		
 	switch ($page[0]) {

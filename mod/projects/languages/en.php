@@ -36,7 +36,7 @@ $english = array(
 	'project:follow'=>"Description:",
     'project:new:title'=>"What's New ?",
     'project:backer:title'=>"Backers:",
-    'project:reward:title'=>"Recent Open Task:",
+    'project:reward:title'=>"Open Issues:",
     'project:pledge'=>"Pledge $",
     'project:more'=>"or more",
     'project:related:title'=>"Project you may interested:",
@@ -45,6 +45,7 @@ $english = array(
     'project:tabs:resources'=>"Resources",
     'project:tabs:backers'=>"Participants",
     'project:tabs:news'=>"Blog",
+    'project:tabs:issue'=>"Issue",
     'project:tabs:required'=>"Collaborate",
     'project:tabs:home'=>"Home",
     'project:warning:content'=>"Congratulations! Your project has been successfully submitted. Please wait for the Committee to activate it. Thanks for your patience.",
@@ -175,7 +176,13 @@ $english = array(
     Dear %s:
         Welcome to join our team of <a href="%s" >%s</a>.
     ',
-	
+	/*
+	 *  Issue 
+	 */
+	'river:create:object:issue' => '%s Create Issue： %s ',
+	'issue:workon'=>'Hey, I am %s,i like your project and now working on your issue:%s, if you have already finish this, please notify me.
+	To reply, please click this link:%s
+	',
 );
 
 add_translation('en', $english);

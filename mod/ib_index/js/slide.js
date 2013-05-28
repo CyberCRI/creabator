@@ -7,7 +7,7 @@
 				hoverPause: true,
 				animationStart: function(current){
 					$('.caption').animate({
-						bottom:-35
+						bottom:0
 					},100);
 					if (window.console && console.log) {
 						// example return of current slide number

@@ -8,8 +8,6 @@
 elgg_register_event_handler('init', 'system', 'projects_init');
 
 
-
-
 /**
  * project init
  */
@@ -85,11 +83,19 @@ function projects_init() {
 	
 	
 	
+	/*
 	//register required task action
 	elgg_register_action("task/add","$action_path/projects/task/add.php");
 	elgg_register_action("task/delete","$action_path/projects/task/delete.php");
 	elgg_register_action("task/finish","$action_path/projects/task/finish.php");
+	*/
 	
+	//register issue action
+	elgg_register_action("issue/add","$action_path/projects/issue/add.php");
+	elgg_register_action("issue/delete","$action_path/projects/issue/delete.php");
+	elgg_register_action("issue/finish","$action_path/projects/issue/finish.php");
+	elgg_register_action("issue/open","$action_path/projects/issue/open.php");
+	elgg_register_action("issue/workon","$action_path/projects/issue/workon.php");
 	
 	// set as long term project action
 	elgg_register_action("projects/longterm","$action_path/projects/longterm.php",'admin');
@@ -311,6 +317,10 @@ function projects_page_handler($page) {
 					set_input('project_guid', $page[2]);
 					include "$pages/setting/help.php";
 					break;
+				case "issues":
+					set_input('project_guid', $page[2]);
+					include "$pages/setting/issues.php";
+					break;
 				case "media":
 					set_input('project_guid', $page[2]);
 					include "$pages/setting/media.php";
@@ -346,6 +356,28 @@ function projects_page_handler($page) {
 		case "backers":
 			set_input('project_guid', $page[1]);
 			include "$pages/backers.php";
+			break;
+			
+		case "issues":
+				switch ($page[1]){
+					case "all":
+						set_input('project_guid', $page[2]);
+						include "$pages/issues/all.php";
+						break;
+						case "view":
+						set_input('guid', $page[2]);
+						include "$pages/issues/view.php";
+						break;
+						case "edit":
+						set_input('guid', $page[2]);
+								include "$pages/issues/edit.php";
+								break;
+			
+								default:
+			return false;
+			
+			}
+			
 			break;
 		case "blogs":
 			switch ($page[1]) {
@@ -613,7 +645,7 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 	
 	
 	$guid=$project->guid;
-
+	/*
 	//team proccess ,team member+ micor help
 		//team member
 	$team_done=done_item($guid,'team');
@@ -635,7 +667,8 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 			'count'=>True
 	));
 	$task_proccess=number_format(($task_done/$task_total)*100);
-	/*
+	$task_undone=$task_total-$task_done;
+
 	if($team_total==0 && $task_total==0){
 		$t_proccess=0;
 	}else{
@@ -645,6 +678,24 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 	*/
 	
 
+	$task_done=elgg_get_entities_from_metadata(array(
+			'type' => 'object',
+			'subtype' => 'issue',
+			'container_guid'=>$guid,
+			'count' => true,
+			'metadata_name'=>'done',
+			'metadata_value'=>'1',
+	));
+	$task_total=elgg_get_entities(array('type'=>'object','subtype'=>'issue','count'=>true,'container_guid'=>$guid));
+	
+	$task_undone=$task_total-$task_done;
+	if($task_total==0){
+		$task_proccess=0;
+	}else{
+		// add some 5 times for the team member
+		$task_proccess=floor($task_done/$task_total*100);
+	}
+	
 	$site_url=elgg_get_site_url();
 
 
@@ -653,7 +704,7 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 	if($class1){
 		$class0=$class1;
 	}
-	$class2="mbs";
+	$class2="mbm mtm";
 	if($class){
 		$class2=$class;
 	}
@@ -663,16 +714,13 @@ function project_proccess_bar($project,$height,$width,$class1,$class){
 
 	<div class="$class0" style="line-height:1">
 	
-	<div class="$class2" style="color:#666" >Team:$t_proccess% ($team_done/$team_total)</div>
-	<div style="$style" class="progress progress-info fl">
-	 <div class="bar" style="width:$t_proccess%"></div>
-	</div>
 	
-	<div class="$class2" style="color:#666">Task:$task_proccess%($task_done/$task_total)</div>
+	<div class="$class2">Issue Progress:$task_proccess%</div>
+	
 	<div style="$style" class="progress progress-success fl">
 	 <div class="bar" style="width:$task_proccess%"></div>
 	</div>
-	
+	<div >Open:$task_undone Closed:$task_done</div>
 	<div class="clearfloat"></div>
 	</div>
 HTML;

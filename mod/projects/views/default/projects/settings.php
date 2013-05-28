@@ -3,35 +3,43 @@
 $guid=$vars['project_guid'] ;
 $content=$vars['content'] ;
 $stabs=array(
-
+		/*
 		'membership' => array(
-				'text' =>elgg_echo('Team Requests'),
+				'text' =>elgg_echo('Team Managemant'),
 				'href' => 'projects/setting/requests/'.$guid,
 				'priority' => 300,
 
 		),
+		*/
 		'media' => array(
 				'text' =>elgg_echo('Promotion media'),
 				'href' => 'projects/setting/media/'.$guid,
-				'priority' => 200,
+				'priority' => 300,
 		
 		),
 		'Reward' => array(
-				'text' =>elgg_echo('Help Setting'),
+				'text' =>elgg_echo('Team Setting'),
 				'href' => 'projects/setting/help/'.$guid,
 				'priority' => 50,
 		
 		),
+		'issue' => array(
+				'text' =>elgg_echo('Open Issues'),
+				'href' => 'projects/setting/issues/'.$guid,
+				'priority' => 100,
+		
+		),
+		
 		'edit' => array(
 				'text' =>elgg_echo('Edit Project'),
 				'href' => 'projects/edit/'.$guid,
-				'priority' => 100,
+				'priority' => 200,
 		
 		),
 		'Basic' => array(
 				'text' =>elgg_echo('Widget Setting'),
 				'href' => 'projects/setting/basic/'.$guid,
-				'priority' => 100,
+				'priority' => 500,
 
 		),
 

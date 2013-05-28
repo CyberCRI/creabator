@@ -7,7 +7,7 @@
  * @uses $vars['filter']         HTML of the content area filter (override)
 
  */
-$nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
+
 // give plugins an opportunity to add to content sidebars
 $content=null;
 $sidebar=null;
@@ -65,7 +65,6 @@ $sidebar_tabs=array(
 echo <<<HTML
 <div class="container">
 <div class="content pal brs mbl">
-$nav
 <div class=" elgg-col-4of5 fl">
 		$content
 </div>

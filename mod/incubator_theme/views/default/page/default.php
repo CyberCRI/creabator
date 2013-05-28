@@ -1,25 +1,8 @@
 <?php
 /**
- * Elgg pageshell
- * The standard HTML page shell that everything else fits into
- *
- * @package Elgg
- * @subpackage Core
- *
- * @uses $vars['title'] The page title
- * @uses $vars['body'] The main content of the page
- * @uses $vars['sysmessages'] A 2d array of various message registers, passed from system_messages()
+ * Main pageshell for Creabator
  */
 
-// backward compatability support for plugins that are not using the new approach
-// of routing through admin. See reportedcontent plugin for a simple example.
-if (elgg_get_context() == 'admin') {
-	elgg_deprecated_notice("admin plugins should route through 'admin'.", 1.8);
-	elgg_admin_add_plugin_settings_menu();
-	elgg_unregister_css('elgg');
-	echo elgg_view('page/admin', $vars);
-	return true;
-}
 
 // Set the content type
 header("Content-type: text/html; charset=UTF-8");
@@ -53,19 +36,16 @@ header("Content-type: text/html; charset=UTF-8");
  			</div>
 
 
-
-
-
-
 <div class="footer">
 		     <?php echo elgg_view('page/elements/footer', $vars); ?>
 			<?php echo elgg_view('page/elements/foot'); ?>
 	
 	</div>
+<!-- share this  -->
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "4039a755-b347-49d4-81fb-f3641580a4c6"});</script>
-	
+	<!-- google analysic -->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

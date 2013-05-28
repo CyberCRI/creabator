@@ -235,17 +235,13 @@ Slide
 .caption {
 	z-index:500;
 	position:absolute;
-	bottom:-35px;
 	left:0;
-	height:30px;
+	height: 100px;
 	padding:5px 20px 0 20px;
-	background:#000;
-	background:rgba(0,0,0,.5);
-	width:540px;
-	font-size:1.3em;
+	background: rgba(0,0,0,.4);
+	width:560px;
 	line-height:1.33;
 	color:#fff;
-	border-top:1px solid #000;
 	text-shadow:none;
 }
 

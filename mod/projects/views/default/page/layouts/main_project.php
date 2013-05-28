@@ -50,6 +50,38 @@ if (elgg_is_logged_in() && $project->canEdit()){
 	$style="display:none;";
 }
 
+// like button
+if(elgg_is_active_plugin('likes')){
+	if (elgg_is_logged_in() && $project->canAnnotate(0, 'likes')) {
+		$num_of_likes = likes_count($project);
+		if (!elgg_annotation_exists($guid, 'likes')) {
+			$url = elgg_get_site_url() . "action/likes/add?guid={$guid}";
+			$params = array(
+					'href' => $url,
+					'text' => '('.$num_of_likes.')'.elgg_view_icon('thumbs-up').elgg_echo('likes:likethis'),
+					'title' => elgg_echo('likes:likethis'),
+					'class'=>'elgg-button elgg-button-submit',
+					'is_action' => true,
+					'is_trusted' => true,
+			);
+			$likes_button = elgg_view('output/url', $params);
+		} else {
+			$url = elgg_get_site_url() . "action/likes/delete?guid={$guid}";
+			$params = array(
+					'href' => $url,
+					'text' => '('.$num_of_likes.')'.elgg_view_icon('thumbs-up-alt').elgg_echo('likes:remove'),
+					'title' => elgg_echo('likes:remove'),
+					'class'=>'elgg-button elgg-button-submit',
+					'is_action' => true,
+					'is_trusted' => true,
+			);
+			$likes_button = elgg_view('output/url', $params);
+		}
+		
+	}
+	
+}
+
 // menu tab
 
 $ptabs=array(
@@ -60,16 +92,22 @@ $ptabs=array(
 				'priority' => 800,
 		),
 	
+		/*
 		'Backers' => array(
 				'text' => elgg_echo('project:tabs:backers'),
 				'href' => 'projects/backers/'.$guid,
 				'priority' => 500,
 		),
-		
+		*/
 		'Blogs' => array(
 				'text' => elgg_echo('project:tabs:news'),
 				'href' => 'projects/blogs/all/'.$guid,
 				'priority' => 400,
+		),
+		'issue' => array(
+				'text' => elgg_echo('project:tabs:issue'),
+				'href' => 'projects/issues/all/'.$guid,
+				'priority' => 350,
 		),
 
 		'Home' => array(
@@ -88,6 +126,15 @@ if(elgg_is_active_plugin('wiki')){
 			);
 }
 
+// criticism
+if(elgg_is_active_plugin('criticism')){
+	$ptabs['critic']=array(
+			'text'=>elgg_echo('Criticism'),
+			'href'=>'criticism/project/'.$guid,
+			'priority'=>'500'
+	);
+}
+
 
 foreach ($ptabs as $name => $ptab) {
 	$ptab['name'] = $name;
@@ -100,7 +147,7 @@ $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
 
 
 $head_title = elgg_view('output/url', array(
-		'text' => $project->title,
+		'text' => "Project:".$project->title,
 		'href' => $project->getURL(),
 		'style'=>'color:white;font-size:2em',
 		));
@@ -111,7 +158,7 @@ $body =<<<HTML
 $private
 <div class="mbm">
 	
-	$owner_name $head_title
+	$head_title $likes_button
 	
 
 
@@ -120,7 +167,6 @@ $private
 <span class='st_twitter_large' displayText='Tweet'></span>
 <span class='st_googleplus_large' displayText='Google +'></span>
 <span class='st_linkedin_large' displayText='LinkedIn'></span>
-<span class='st_sina_large' displayText='Sina'></span>
 <span class='st_sharethis_large' displayText='ShareThis'></span>
 </div>
 </div>
@@ -145,5 +191,4 @@ li.elgg-menu-item-settings{
 <?php echo $style ?>;
 }
 </style>
-
 

@@ -10,7 +10,7 @@ $project = get_entity($project_guid);
 
 
 
-$title=elgg_view_title('Needed Team & Tools:');
+$title=elgg_view_title('Team Management');
 $vars = projects_prepare_form_vars($project);
 //$team=elgg_view_form('projects/help',array(),$vars);
 
@@ -23,14 +23,6 @@ $lists=<<<html
 	<div id="output_team"></div>
 </div>
 
-<h2>Open Task</h2>
-<blockquote>Open task is the task that you want to get help from the crowed and it's better that could be done within 15 mins.</blockquote>
-
-<div class="pam grey mbm">
-<textarea name="task" id="task" placeholder="Example:I need your help to design a logo."></textarea>
-<input type='submit' id="submit_task" class="orange-button" value="Add">
-	<div id="output_task"></div>
-</div>
 
 
 
@@ -69,22 +61,30 @@ $(document).ready(function(){
  $("#submit_team").click(function(){
         add_task('team');
 	})
-
-	 // load & submit tasks	
- load_tasks('task');
-  $("#submit_task").click(function(){
-        add_task('task');
-	})
-	
-
-	
-
 	
 })
 </script>
 html;
 
+//team membership request
+$lists.="<h2>".elgg_echo('projects:membershiprequests')."</h2>";
+if ($project && $project->canEdit()) {
 
+	$requests = elgg_get_entities_from_relationship(array(
+			'type' => 'user',
+			'relationship' => 'membership_request',
+			'relationship_guid' => $project_guid,
+			'inverse_relationship' => true,
+			'limit' => 0,
+	));
+	$lists.= elgg_view('projects/membershiprequests', array(
+			'requests' => $requests,
+			'entity' => $project,
+	));
+
+} else {
+	$lists.= elgg_echo("projects:noaccess");
+}
 $content=elgg_view('projects/settings',array('project_guid'=>$project_guid,'content'=>$lists));
 
 $body = elgg_view_layout('main_project', array(

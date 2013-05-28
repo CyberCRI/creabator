@@ -29,9 +29,8 @@ $closed
 		 We are looking for:
 		</div>
 		<div id="proccess"></div>
-		<div id="rq_team"></div>
 		<div id="task"></div>
-		
+		<div id="rq_team"></div>
 		
 	</div>
 	<div class="fl elgg-col-3of4" style="margin-top:50px">
