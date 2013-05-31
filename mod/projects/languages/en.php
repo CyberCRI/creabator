@@ -183,6 +183,16 @@ $english = array(
 	'issue:workon'=>'Hey, I am %s,i like your project and now working on your issue:%s, if you have already finish this, please notify me.
 	To reply, please click this link:%s
 	',
+
+	/*
+	* Project widget
+	*/
+	'projects:widget:doneissues'=>'Done Issues',
+	'projects:widget:doneissue:description'=>'Done issue that you have contributed to.',
+	'projects:widget:workonissues'=>'Issues working on',
+	'projects:widget:workonissue:description'=>'Issues that you are working on.',
+	'projects:issue:none'=>'He do not working on any issue at this time.',
+	'projects:issue:widget:undone'=>'The issue he is working on do not finish yet.',
 );
 
 add_translation('en', $english);

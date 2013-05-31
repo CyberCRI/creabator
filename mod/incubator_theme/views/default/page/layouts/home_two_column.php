@@ -55,18 +55,6 @@ $sidebar_tabs=array(
 		
 	);
 
-if(elgg_is_active_plugin('ideaspool')){
-	$sidebar_tabs['ideas'] = array(
-			'text' => elgg_echo('ideas:all'),
-			'href' => 'ideas/all',
-			'priority' => 400,
-	);
-	$sidebar_tabs['ideas_add'] = array(
-			'text' => elgg_echo('ideas:add'),
-			'href' => 'ideas/add',
-			'priority' => 500,
-	);
-}
 
 if(elgg_is_active_plugin('projects')){
 	// my projects
@@ -92,7 +80,24 @@ echo "<div class='dashed mtm'></div>"
 	<?php if (isset($vars['sidebar'])) {
 				echo $vars['sidebar'];
 			}?>	
-	
+	<?php
+	// add the recent active user links
+     // list members
+	$members=elgg_get_entities_from_metadata(array('type'=>'user','metadata_names'=>'icontime','limit'=>18));
+	if($members){
+		$memberlist="<h4 class='center'>Recent Users</h4>";
+		$memberlist.="<ul>";
+		foreach ($members as $member){
+			
+			$m_icon=elgg_view_entity_icon($member,'small');
+			$memberlist.="<li class='inline-block pas'>{$m_icon}</li>";
+		
+		}
+		$memberlist.="</ul>";
+		echo $memberlist;
+	}
+
+	?>
 </div>
 	<div class="elgg-col-5of6 fl bgwhite">
 		<div class="elgg-main">

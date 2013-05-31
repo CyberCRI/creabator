@@ -119,6 +119,10 @@ function projects_init() {
 	elgg_register_widget_type('projects', elgg_echo('Projects(Owner)'), elgg_echo('projects:widget:description'));
 	elgg_register_widget_type('memberofprojects', elgg_echo('Projects(Participate)'), elgg_echo('projects:widget:description'));
 	
+	// register the widget for showing the issues that working on and finish
+	elgg_register_widget_type('doneissues', elgg_echo('projects:widget:doneissues'), elgg_echo('projects:widget:doneissue:description'));
+	elgg_register_widget_type('workonissues', elgg_echo('projects:widget:workonissues'), elgg_echo('projects:widget:workonissue:description'));
+	
 
 	// Register granular notification for this type
 	register_notification_object('object', 'projects', elgg_echo('projects:new'));
