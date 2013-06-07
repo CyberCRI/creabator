@@ -23,8 +23,8 @@ $english = array(
 	'projects:membershiprequests'=>"Membership Request",
 	'projects:requests:none'=>"No Request",
 	'projects:file:upload'=>"Upload an image",
-	'projects:file:replace'=>"Leave blank if not change",
-	'project:read more'=>"...Read more",
+	'projects:file:replace'=>"Leave blank if not changed",
+	'project:read more'=>"... Read More",
 	'project:presentation'=>"Presentation:",
 	'project:brief'=>"Brief Introduction:",
 	'projects:own'=>'My Project',
@@ -34,7 +34,7 @@ $english = array(
 	'project:contribute:facility'=>'Provide Facility',
 	'projects:acl'=>'Projects:%s',
 	'project:follow'=>"Description:",
-    'project:new:title'=>"What's New ?",
+    'project:new:title'=>"What's New?",
     'project:backer:title'=>"Backers:",
     'project:reward:title'=>"Open Issues:",
     'project:pledge'=>"Pledge $",
@@ -48,7 +48,7 @@ $english = array(
     'project:tabs:issue'=>"Issue",
     'project:tabs:required'=>"Collaborate",
     'project:tabs:home'=>"Home",
-    'project:warning:content'=>"Congratulations! Your project has been successfully submitted. Please wait for the Committee to activate it. Thanks for your patience.",
+    'project:warning:content'=>"Congratulations! Your project has been successfully submitted. We will activate it soon. Thanks for your patience.",
 	'project:all:research'=>"Research",
 	'project:all:learning'=>"Education",
 	'project:all:engineering'=>"Engineering",
@@ -62,7 +62,7 @@ $english = array(
 	'projects:money:backers'=>"Funding Backers",
 	
 	'river:create:object:projects' => '%s Create: %s ',
-	'river:comment:object:projects' => '%s commented on a project %s',
+	'river:comment:object:projects' => '%s commented on project %s',
 	'projects:river:annotate' => 'a comment on this project',
 	'projects:river:item' => 'an item',
 	'river:join:object'=>'%s Join: %s',
@@ -77,17 +77,17 @@ $english = array(
 	'setting:fund:exit'=>'We have:',
 	'setting:fund:num'=>'We need:',
 	'setting:fund:reward'=>'Required&Reward plan for funding:',
-	'setting:fund:placeholder'=>'Example: If you pledge 5, i will give you a post card.',
+	'setting:fund:placeholder'=>'Example: If you pledge 5, I will give you a post card.',
 	'setting:tool:title'=>'Tools info:',
 	'setting:tool:exit'=>'We have:',
 	'setting:tool:num'=>'We need:',
 	'setting:tool:reward'=>'Required&Reward plan for tool countribution:',
-	'setting:tool:placeholder'=>'Example: If you lend me your computer for 1h , i will show you the result.',
+	'setting:tool:placeholder'=>'Example: If you lend me your computer for 1h, I will show you the result.',
 	'setting:team:title'=>'Participant info:',
 	'setting:team:exit'=>'We have:',
 	'setting:team:num'=>'We need::',
 	'setting:team:reward'=>'Required&Reward plan for participant contribution:',
-	'setting:team:placeholder'=>'Example: If you participate in our project, i will teach you how to build a website.',
+	'setting:team:placeholder'=>'Example: If you participate in our project, I will teach you how to build a website.',
     
 	'projects:no_title' => 'No title',
 	'projects:remove:none'=>'No Backer now.',
@@ -98,26 +98,26 @@ $english = array(
 	 *  Projects Status messages
 	 */
 
-	'projects:save:success' => "Project Create Success!",
+	'projects:save:success' => "Project created!",
 	'projects:delete:success' => "Your project was deleted.",
 	'project:blogs:delete:success'=>"Your post was deleted",
 	'project:updates:delete:success'=>"Your status was deleted.",
-	'project:Apply:success'=>"Submit success,Thanks for your application:)",
-	'Projects:Activated'=>"Project is activated now.",
-	'Projects:Desactivated'=>"Project didn't activated yet.",
-	'projects:featured'=>"Project is featured now.",
-	'projects:unfeatured'=>"Project is unfeatured now",
-	'project:lend:success'=>"Thanks for your lending,project owner will contact you soon",
-	'project:team_state:failed'=>"Update failed,please try again later",
-	'project:updates:save:failed'=>"Status post Save failed,please try again later",
-	'projects:no permission'=>"You have no permission to edit this project",
+	'project:Apply:success'=>"Submit success, Thanks for your application:)",
+	'Projects:Activated'=>"Project is now activated.",
+	'Projects:Desactivated'=>"Project is currently deactivated.",
+	'projects:featured'=>"Project is now featured.",
+	'projects:unfeatured'=>"Project is no longer featured",
+	'project:lend:success'=>"Thanks for lending! The project owner will contact you soon",
+	'project:team_state:failed'=>"There was an error updating. Please try again later",
+	'project:updates:save:failed'=>"There was an error saving. Please try again later",
+	'projects:no permission'=>"You do not have permission to edit this project",
 	
 	
 	/*
 	 *  Project Count Down module
 	 */
 	'refresh:title'=>'Refresh at:',
-	'remain:sub'=>'days left to get enough money',
+	'remain:sub'=>'days left to receive enough funding',
 	
 	/*
 	 * Project Add resource page
@@ -131,9 +131,9 @@ $english = array(
 	
 	
 	/*
-	 *  backup  proccess
+	 *  backup  process
 	 */
-	'backup:attention'=>'If you are the <span style="color:red">first time</span> to backup, please check the <span style="color:red"> Important Info</span> in the right side.',
+	'backup:attention'=>'If this is the <span style="color:red">first time</span> you have backed up, please check the <span style="color:red">Important Info</span> on the right side.',
 	'backup:important:content'=>'The amount you pay will reduce your money first. If the project get 100%, then he can get your donation money, if not, the money will return to your creabator bank account and you could use it to support the other projects.',
 	
 
@@ -152,43 +152,43 @@ $english = array(
 	 * Error messages
 	 */
 
-	'projects:save:failed' => "Your project could not be saved. Make sure the required infomation aren't empty.",
+	'projects:save:failed' => "Your project could not be saved. Please make sure to fill in all required fields.",
 	'projects:address:invalid' => "The address of the project is invalid and could not be saved.",
 	'projects:delete:failed' => "Your project could not be deleted. Please try again later.",
-	'project:blogs:delete:failed'=>"Your post could not be deleted,please try again later",
-	'project:updates:delete:failed' =>"Your status could not be deleted,please try again later.",
+	'project:blogs:delete:failed'=>"Your post could not be deleted. Please try again later",
+	'project:updates:delete:failed' =>"Your status could not be deleted. Please try again later.",
 	'not project'=>"It's not a project.",
-	'project:blogs:save:failed'=>"Your post could not be saved,please try again later",
+	'project:blogs:save:failed'=>"Your post could not be saved. Please try again later",
 	'project:lend:description:blank'=>"Please fill up your facility description",
 	'project:lend:freestart:blank'=>"Please fill up the start date",
 	'project:lend:freeend:blank'=>"Please fill up the end date",
-	'project:lend:location:blank'=>"Please fill up the loaction",
-	'project:facility:save:failed'=>"Save failed,please try again later",
-	'project:updates:save:failed'=>"Save failed,please try again later",
+	'project:lend:location:blank'=>"Please fill up the location",
+	'project:facility:save:failed'=>"Save failed. Please try again later",
+	'project:updates:save:failed'=>"Save failed. Please try again later",
 	'not project blog'=>"It's not a blog post ,please check and try again later",
 	
 
 	/*
 	 * send messages
 	 */
-    'projects:welcome:join:subject'=>'Welcome to %s !',
+    'projects:welcome:join:subject'=>'Welcome to %s!',
     'projects:welcome:join:body'=>'
     Dear %s:
-        Welcome to join our team of <a href="%s" >%s</a>.
+        Welcome to the <a href="%s" >%s</a> team.
     ',
 	/*
 	 *  Issue 
 	 */
-	'river:create:object:issue' => '%s Create Issue： %s ',
-	'issue:workon'=>'Hey, I am %s,i like your project and now working on your issue:%s, if you have already finish this, please notify me.
+	'river:create:object:issue' => '%s Create Issue: %s',
+	'issue:workon'=>'Hi, my name is %s. I like your project and now working on issue: %s, if you have already finished this task, please notify me.
 	To reply, please click this link:%s
 	',
 
 	/*
 	* Project widget
 	*/
-	'projects:widget:doneissues'=>'Done Issues',
-	'projects:widget:doneissue:description'=>'Done issue that you have contributed to.',
+	'projects:widget:doneissues'=>'Completed Issues',
+	'projects:widget:doneissue:description'=>'Completed issues that you have contributed to.',
 	'projects:widget:workonissues'=>'Issues working on',
 	'projects:widget:workonissue:description'=>'Issues that you are working on.',
 	'projects:issue:none'=>'He do not working on any issue at this time.',
