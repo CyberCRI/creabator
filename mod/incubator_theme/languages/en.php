@@ -13,7 +13,7 @@ $english = array(
 		
 	'menu:account'=>"Account",
 	'menu:friendsof'=>"Followers",
-	'menu:profile'=>"MyProfile",
+	'menu:profile'=>"My Profile",
 	'menu:message'=>"Messages",
 	'menu:setting'=>"Settings",
 	'menu:logout'=>"Logout",
@@ -27,11 +27,11 @@ $english = array(
 	
 	//feedback
 	'feedback'=>"Feedback",
-	'feedback:success'=>"Your feedback submit successfuly,thanks you:)",
-	'feedback:required'=>"All field are required",
-	'feedback:fired'=>"Failed,Please try again.",
-	'feedback:title'=>"Feedback subject",
-	'feedback:desc'=>"Feedback body",
+	'feedback:success'=>"Thank you for your feedback",
+	'feedback:required'=>"All fields are required",
+	'feedback:fired'=>"There was an error. Please try again.",
+	'feedback:title'=>"Subject",
+	'feedback:desc'=>"Body",
 		
 	//message
     'messages:nomessages'=>"No news",

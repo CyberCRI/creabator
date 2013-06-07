@@ -5,7 +5,7 @@
 
 $english = array(
 	'profile' => 'Profile',
-	'profile:notfound' => 'Sorry. We could not find the requested profile.',
+	'profile:notfound' => 'Sorry, we could not find the requested profile.',
 
 );
 
