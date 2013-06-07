@@ -6,7 +6,7 @@
 $english = array(
 	'sitename'=>'Creabator',
 	'slogan'=>"Innovating Collectively",
-	'apply'=>'Apply account',
+	'apply'=>'Apply',
 	'about'=>'About Us',
 	'contact'=>'Contact Us',
 	'help'=>'Get Help',
@@ -29,8 +29,8 @@ $english = array(
 	 * widget 
 	 */
 	'question:more'=>'More...',
-	'question-top:widget:description'=>'Questions that he ask',
-	'question-top:widget:description'=>'Questions that he answer',
+	'question-top:widget:description'=>'Questions asked',
+	'question-top:widget:description'=>'Questions answered',
 	'question:num_questions'=>'Numbers to display',
 	
 		/**
@@ -41,23 +41,23 @@ $english = array(
 		'friends:yours' => "Your following",
 		'friends:owned' => "%s's following",
 		'friend:add' => "Follow",
-		'friend:remove' => "Remove follow",
+		'friend:remove' => "Stop following",
 		
-		'friends:add:successful' => "You have successfully follow %s.",
-		'friends:add:failure' => "We couldn't follow %s.",
+		'friends:add:successful' => "You are now following %s.",
+		'friends:add:failure' => "Error attempting to follow %s.",
 		
-		'friends:remove:successful' => "You have successfully removed following %s .",
-		'friends:remove:failure' => "We couldn't remove following %s .",
+		'friends:remove:successful' => "You are no longer following %s .",
+		'friends:remove:failure' => "Error attempting to stop following %s .",
 		
 		'friends:none' => "No followers yet.",
 		'friends:none:you' => "You don't have any followers yet.",
 		
 		'friends:none:found' => "No followers were found.",
 		
-		'friends:of:none' => "Nobody has followed this user yet.",
-		'friends:of:none:you' => "Nobody has followed you yet. Start adding content and fill in your profile to let people find you!",
+		'friends:of:none' => "Nobody is following this user yet.",
+		'friends:of:none:you' => "Nobody is followuing you yet. Start adding content and fill in your profile to let people find you!",
 		
-		'friends:of:owned' => "People who have followed %s ",
+		'friends:of:owned' => "People who are following %s ",
 		
 		'friends:of' => "Followers",
 		'friends:collections' => "Followers collections",
@@ -70,7 +70,7 @@ $english = array(
 		'friends:nocollections' => "You do not have any collections yet.",
 		'friends:collectiondeleted' => "Your collection has been deleted.",
 		'friends:collectiondeletefailed' => "We were unable to delete the collection. Either you don't have permission, or some other problem has occurred.",
-		'friends:collectionadded' => "Your collection was successfully created",
+		'friends:collectionadded' => "Your collection was created",
 		'friends:nocollectionname' => "You need to give your collection a name before it can be created.",
 		'friends:collections:members' => "Collection members",
 		'friends:collections:edit' => "Edit collection",
@@ -80,18 +80,18 @@ $english = array(
 	//sidebar menu
 	'sidebar:menu:all'=>'Explore',
 
-	//reference messgae
+	//reference message
        	'reference:subject'=>'New reference',
        	'reference:body'=>' %s in question(<a href="%s">%s</a>):add new reference:%s ��',
 	
 	// apply form
 	'realname'=>'Real name',
-	'apply-desc'=>'Personal info(professional background,study field and so on)',
+	'apply-desc'=>'Personal info (professional background, field of study, etc.)',
 
 		
 	// river menu
-        'river:no question'=>'You are not follow any question yet, try to follow questions that you might interested in.',
-        'river:no follow'=>'You are not follow any people yet, try to follow some interesting people',
+        'river:no question'=>'You are not following any questions yet. Try to follow questions that you are interested in.',
+        'river:no follow'=>'You are not following anyone yet, try to follow some interesting people',
 	'forward:this'=>'Forward this question:',
 	'question:this'=>'Question this question',
 	//help
@@ -129,7 +129,7 @@ $english = array(
 	'messages:recent' => "Recent messages",
 	'messages:original' => "Original Message",
 	'messages:yours' => "Your message",
-	'messages:answer' => "reply",
+	'messages:answer' => "Reply",
 	'messages:toggle' => 'Toggle',
 	'messages:markread' => 'Markread',
 	'messages:recipient' => 'Select recipient',
@@ -139,7 +139,7 @@ $english = array(
 
 	'notification:method:site' => 'Site',
 
-	'messages:error' => 'Save failed,please try again later.',
+	'messages:error' => 'Save failed, please try again later.',
 
 	'item:object:messages' => 'All messages',
 
@@ -149,31 +149,31 @@ $english = array(
 
 	'messages:posted' => "Your message has sent.",
 	'messages:success:delete:single' => 'This message has deleted.',
-	'messages:success:delete' => 'These messages have deleted.',
-	'messages:success:read' => 'These messages have marked read.',
-	'messages:error:messages_not_selected' => 'you do not selected any message.',
-	'messages:error:delete:single' => 'delete failed',
+	'messages:success:delete' => 'Those messages have been deleted.',
+	'messages:success:read' => 'These messages have been marked as read.',
+	'messages:error:messages_not_selected' => 'You have not selected any messages.',
+	'messages:error:delete:single' => 'Delete failed',
 
 	/**
 	* Email messages
 	*/
 
-	'messages:email:subject' => 'You have new message.',
-	'messages:email:body' => "You have message from %s :
+	'messages:email:subject' => 'You have new messages.',
+	'messages:email:body' => "You have a message from %s :
 
 
 	%s
 
 
-	If you want to read this message,please click this link::
+	If you want to read this message, please click this link::
 
 	%s
 
-	If you want to send message to %s , please click here:
+	If you want to reply to %s, please click here:
 
 	%s
 
-	You could not reply this email.",
+	You were not able to reply to this message.",
 
 	
 	
