@@ -65,7 +65,7 @@ $english = array(
 	'river:comment:object:projects' => '%s commented on project %s',
 	'projects:river:annotate' => 'a comment on this project',
 	'projects:river:item' => 'an item',
-	'river:join:object'=>'%s Join: %s',
+	'river:join:object'=>'%s joined %s',
 
 	'item:object:projects' => 'projects',
     'projects:numbertodisplay'=>"Limit Numbers",
@@ -102,7 +102,7 @@ $english = array(
 	'projects:delete:success' => "Your project was deleted.",
 	'project:blogs:delete:success'=>"Your post was deleted",
 	'project:updates:delete:success'=>"Your status was deleted.",
-	'project:Apply:success'=>"Submit success, Thanks for your application:)",
+	'project:Apply:success'=>"Your request has been sent. Thanks!",
 	'Projects:Activated'=>"Project is now activated.",
 	'Projects:Desactivated'=>"Project is currently deactivated.",
 	'projects:featured'=>"Project is now featured.",
@@ -157,7 +157,7 @@ $english = array(
 	'projects:delete:failed' => "Your project could not be deleted. Please try again later.",
 	'project:blogs:delete:failed'=>"Your post could not be deleted. Please try again later",
 	'project:updates:delete:failed' =>"Your status could not be deleted. Please try again later.",
-	'not project'=>"It's not a project.",
+	'not project'=>"Error retrieving project. Please again later",
 	'project:blogs:save:failed'=>"Your post could not be saved. Please try again later",
 	'project:lend:description:blank'=>"Please fill up your facility description",
 	'project:lend:freestart:blank'=>"Please fill up the start date",
@@ -165,7 +165,7 @@ $english = array(
 	'project:lend:location:blank'=>"Please fill up the location",
 	'project:facility:save:failed'=>"Save failed. Please try again later",
 	'project:updates:save:failed'=>"Save failed. Please try again later",
-	'not project blog'=>"It's not a blog post ,please check and try again later",
+	'not project blog'=>"Error retrieving blog post. Please again later",
 	
 
 	/*
@@ -191,8 +191,8 @@ $english = array(
 	'projects:widget:doneissue:description'=>'Completed issues that you have contributed to.',
 	'projects:widget:workonissues'=>'Issues working on',
 	'projects:widget:workonissue:description'=>'Issues that you are working on.',
-	'projects:issue:none'=>'He do not working on any issue at this time.',
-	'projects:issue:widget:undone'=>'The issue he is working on do not finish yet.',
+	'projects:issue:none'=>'Not working on any issues now.',
+	'projects:issue:widget:undone'=>'No completed issues yet.',
 );
 
 add_translation('en', $english);
