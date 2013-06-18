@@ -13,7 +13,7 @@ $english = array(
 
 	'wiki' => "Wiki",
 	'wiki:owner' => "%s's wiki",
-	'wiki:all' => "All Top-level wiki",
+	'wiki:all' => "Top-level wiki pages",
 	'wiki:add' => "Create a page",
 	'wiki:nopermission'=>'You do not have permission.',
 	'wiki:edit' => "Edit this page",
@@ -22,7 +22,7 @@ $english = array(
 	'wiki:view' => "View page",
 	'wiki:revision' => "Revision",
 	'wiki:project'=>'Only Team Members',
-	'wiki:none' => 'No wiki page yet',
+	'wiki:none' => 'No wiki pages yet. Please create one!',
 	'wiki:attention'=>'Here is the wikis that could co-edit within team members.You could create sub-page wiki.',	
 	'wiki:navigation' => "Navigation",
 	'wiki:title' => 'Title',
