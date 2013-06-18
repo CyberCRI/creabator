@@ -104,10 +104,10 @@ $english = array(
 	'help:contact'=>'Contact Us',
 	
 	'feedback:title'=>'Title',
-	'feedback:desc'=>'Please decribe it with more detail.',
+	'feedback:desc'=>'Please provide some details',
 
 	// messages
-	'messages' => "All news",
+	'messages' => "All messages",
 	'messages:unreadcount' => "%s unread",
 	'messages:back' => "back to inbox",
 	'messages:user' => "%s 's inbox",
@@ -116,7 +116,7 @@ $english = array(
 	'messages:send' => "Send",
 	'messages:sent' => "Sent",
 	'messages:message' => "Message",
-	'messages:title' => "Subtitle",
+	'messages:title' => "Subject",
 	'messages:to' => "To:",
 	'messages:from' => "From:",
 	'messages:fly' => "Send",
