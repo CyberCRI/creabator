@@ -56,6 +56,22 @@ if($members){
 	$memberlist.="</ul>";
 }
 
+// list recent tasks
+$entities = elgg_get_entities(array(
+				'type' => 'object',
+				'subtype' => 'projects',
+		));
+		foreach($entities as $entity){
+			$e_guid=$entity->guid;
+			// only for projects in open status
+			if(elgg_trigger_plugin_hook('project:status', 'all',array('guid'=>$e_guid),'1')!="2"){
+				$guids[]=$e_guid;
+			}
+		}
+$more_tasks=elgg_view('output/url',array('href'=>'projects/contribute','text'=>elgg_echo('More Tasks'),'class'=>'elgg-button elgg-button-submit fr'));
+$recent_tasks=elgg_view('contribute/task',array('guids'=>$guids,'limit'=>5));
+
+
 function adate_img($entity){
 	$imgurl=$entity->getIconURL('large');
 list($width, $height) = getimagesize($imgurl);
@@ -122,8 +138,10 @@ $body=<<<html
 		<div class="clearfloat"></div>
 		   <h2 class="mtm dashed plm" style="color:#666;width:90%" >Latest Users：</h2>
 		$memberlist 
-		
-		
+		$more_tasks
+           <h2 class="mtm dashed plm" style="color:#666;width:90%" >Latest Open Tasks: </h2>
+		$recent_tasks
+
 	</div> 		
 	</div>
 	

@@ -31,6 +31,7 @@ $english = array(
 	'projects:contribute'=>'Contribute',
 	'project:contribute:task'=>'Open Task',
 	'project:contribute:team'=>'Find Team',
+	'explain:task'=>'Open task is the micro task that the project owner ask for your profession help.You could spent 5-15 minutes to finish the task.',
 	'project:contribute:facility'=>'Provide Facility',
 	'projects:acl'=>'Projects:%s',
 	'project:follow'=>"Description:",

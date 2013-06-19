@@ -14,6 +14,7 @@
 		));
 		foreach($entities as $entity){
 			$e_guid=$entity->guid;
+			// only for projects in open status
 			if(elgg_trigger_plugin_hook('project:status', 'all',array('guid'=>$e_guid),'1')!="2"){
 				$guids[]=$e_guid;
 			}
@@ -33,11 +34,13 @@
 				$content=elgg_view('contribute/facility',array('guids'=>$guids));
 				break;
 		}
-		
+		// explain the open task and team
+	$info="<div class='well well-small muted'>".elgg_echo('explain:task')."</div>";
+
 	$fliter = elgg_view('projects/contribute_menu', array('selected' => $selected_tab));
 	$body = elgg_view_layout('ib_two_column', array(
 				'ib_content' => $content,
-				'ib_filter'=>$fliter,
+				'ib_filter'=>$info.$fliter,
 	));
 	
 	
