@@ -105,6 +105,7 @@ function related_objects_base_on_tags($guid,$limit,$vars = array()){
 }
 
 function Undone_contribute($guid,$name){
+
 	$tasks=elgg_get_annotations(array(
 			'type'=>'object',
 			'subtype'=>'projects',

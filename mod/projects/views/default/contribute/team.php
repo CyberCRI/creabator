@@ -1,11 +1,11 @@
 <?php
 $guids=$vars['guids'];
-
+$limit=$vars['limit'];
 
 $i=0;
 $total=count($guids);
 while($i<$total){
-	$ud=Undone_contribute($guids[$i], 'team');
+	$ud=Undone_contribute($guids[$i],'team');
 	if($ud){
 	$undones_tasks=$ud;
 		foreach($undones_tasks as $undone_task){
@@ -31,7 +31,7 @@ if($undones){
 		$p_brief=$project->briefdes;
 		$list_link=elgg_view('output/url',array('href'=>"projects/apply/{$guid}?id={$undone->id}",'text'=>'JoinUs','id'=>"del-{$undone->id}",'class'=>'orange-button fr'));
 		
-		$list.= "<li class='mts mbs pam grey brm' style='width:98%'>";
+		$list.= "<li class='mts mbs pam well well-small brm' style='width:94%;margin-left:2%'>";
 		$list.= "<div class='dashed' style='font-size:1.2em' >{$undone->value}$list_link</div>";
 		$list.= "<div style='color:#ccc'>$p_title  $p_link</div>";
 		$list.= "</li>";

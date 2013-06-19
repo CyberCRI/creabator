@@ -5,6 +5,7 @@ if(!$limit){
 	$limit=0;
 }
 
+/*
 foreach($guids as $guid){
 $issues=elgg_get_entities_from_metadata(array('type'=>'object','subtype'=>'issue','container_guid'=>$guid,'metadata_name'=>'done','metadata_value'=>'0','limit'=>$limit));
 	if($issues){
@@ -13,6 +14,10 @@ $issues=elgg_get_entities_from_metadata(array('type'=>'object','subtype'=>'issue
 		}
 	}
 }
+*/
+
+$undones=elgg_get_entities_from_metadata(array('type'=>'object','subtype'=>'issue','container_guid'=>$guids,'metadata_name'=>'done','metadata_value'=>'0','limit'=>$limit));
+
 
 
 if($undones){
