@@ -9,8 +9,19 @@ Here is the guide of how to install Elgg:http://docs.elgg.org/wiki/Installation
 
 1.2 Copy the mod folder and go to admin panel to activate the plugins.
 ==
+Go the http://www.youdomain.com/admin and login with you admin account and then click "plugins" tab in the right sidebar.
 Attentions:
 Before activate the plugin of "incubator_theme", you should activate the plugin of "projects" and "search". 
+
+
+1.3 unzip the zend.zip into your webroot directory 
+==
+zend.zip is for the youtube api uploading, after you unzip it ,you need to change some code in the mod/project/lib/projects.php,
+$clientLibraryPath = '/you/path/to/the/Zend/library/';
+$_SESSION['developerKey'] = 'you developer key';
+$_SESSION['sessionToken']='you session token';
+you could find out more infomation of how to create an account the get the key in this link:https://developers.google.com/youtube/
+
 
 
 2. How to create an Elgg plugin

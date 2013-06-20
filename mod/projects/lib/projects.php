@@ -142,8 +142,8 @@ function Undone_contribute($guid,$name){
 }
 
 // function for the youtube api
-
-$clientLibraryPath = '/home/wiseru/public_html/creabator.org/Zend/library/';
+// you could register you account in https://developers.google.com/youtube/
+$clientLibraryPath = '/you/path/to/the/Zend/library/';
 $oldPath = set_include_path(get_include_path() . PATH_SEPARATOR . $clientLibraryPath);
 require_once 'Zend/Loader.php';
 Zend_Loader::loadClass('Zend_Gdata_YouTube');
@@ -152,8 +152,8 @@ Zend_Loader::loadClass('Zend_Gdata_App_Exception');
 session_start();
 setLogging('on');
 generateUrlInformation();
-$_SESSION['developerKey'] = 'AI39si6kRKUia9pIa5shfm9ANGiq6H9vZw0rIcHnsyaGkShgmpgRYw47cH8UyhlCZ2bgwu2jjJi_4PunBTJG8OJ2RMr8MPrIcQ';
-$_SESSION['sessionToken']='1/eBwlQ9TsrJ5mQ-BZTmE3NGa-ATGMSeyB3UykRm7yAIk';
+$_SESSION['developerKey'] = 'you developerKey';
+$_SESSION['sessionToken']='you session Token';
 function setLogging($loggingOption, $maxLogItems = 10)
 {
     switch ($loggingOption) {
