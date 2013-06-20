@@ -83,12 +83,12 @@ function projects_init() {
 	
 	
 	
-	/*
+	
 	//register required task action
 	elgg_register_action("task/add","$action_path/projects/task/add.php");
 	elgg_register_action("task/delete","$action_path/projects/task/delete.php");
 	elgg_register_action("task/finish","$action_path/projects/task/finish.php");
-	*/
+	
 	
 	//register issue action
 	elgg_register_action("issue/add","$action_path/projects/issue/add.php");

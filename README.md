@@ -16,13 +16,13 @@ $_SESSION['developerKey'] = 'you developer key';
 $_SESSION['sessionToken']='you session token';
 you could find out more infomation of how to create an account the get the key in this link:https://developers.google.com/youtube/
 
-
 1.3 Copy the mod folder and go to admin panel to activate the plugins.
 ==
 Go the http://www.youdomain.com/admin and login with you admin account and then click "plugins" tab in the right sidebar.
 Attentions:
 Before activate the plugin of "incubator_theme", you should activate the plugin of "projects" and "search". 
 
+1.4 Localization
 
 
 

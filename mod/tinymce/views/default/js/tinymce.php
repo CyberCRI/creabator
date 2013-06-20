@@ -34,7 +34,7 @@ elgg.tinymce.init = function() {
 		editor_selector : "elgg-input-longtext",
 		theme : "modern",
 		language : "<?php echo tinymce_get_site_language(); ?>",
-		plugins : "image,media,link,code,autosave",
+		plugins : "image,media,link,code,autosave,charmap",
 		relative_urls : false,
 		remove_script_host : false,
 		document_base_url : elgg.config.wwwroot,
