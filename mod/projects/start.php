@@ -141,6 +141,9 @@ function projects_init() {
 
 	// Register a URL handler for projects blogs
 	elgg_register_entity_url_handler('object', 'blogs', 'blogs_url');
+
+	// Register a URL handler for projects issues
+	elgg_register_entity_url_handler('object', 'issue', 'issues_url');
 	
 	// Register a URL handler for projects checkout
 	elgg_register_entity_url_handler('object', 'backup', 'backup_url');
@@ -468,6 +471,11 @@ function project_url($entity) {
 function blogs_url($entity) {
 	global $CONFIG;
 	return $CONFIG->url . "projects/blogs/view/" . $entity->getGUID();
+}
+
+function issues_url($entity) {
+	global $CONFIG;
+	return $CONFIG->url . "projects/issues/view/" . $entity->getGUID();
 }
 
 function backup_url($entity) {
