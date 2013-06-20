@@ -12,7 +12,9 @@ $tagline = get_input('tagline');
 $briefdes = get_input('briefdes');
 $plan = get_input('plan');
 
+/*
 $amount=get_input('amount');
+
 $no_money=(int)get_input('no_money');
 if($no_money==1){
 	$amount=0;
@@ -21,7 +23,7 @@ if($no_money==1){
 		register_error('Please fill the amount or click the checkbox');
 	}
 }
-	
+*/
 
 
 $tags = get_input('tags');
@@ -67,8 +69,8 @@ $project->annotate('m_state', 0,2,$_SESSION['user']->getGUID(),'integer');
 
 
 // alow owner to change
-$project->fund_amt=$amount;
-$project->no_money=$no_money;
+//$project->fund_amt=$amount;
+//$project->no_money=$no_money;
 
 $project->access_id=$visibility;
 
