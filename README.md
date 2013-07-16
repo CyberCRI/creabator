@@ -126,6 +126,49 @@ One important things that you should keep in mind that the plugin files could re
 
 
 - projects
+	- actions
+		- comments `comment add functions`
+		- projects 
+			- blogs `delete blog action`
+			- fbacker `facility backup guid actions`
+			- issue `project issue guid actions`
+			- membership `add or remove membership actions`
+			- apply.php `apply team message`
+			- blogs.php `project blogs saving action`
+			- delete.php `delete project action`
+			- featured.php `admin make project featured`
+			- poster.php `save poster action`
+			- save.php `project save actoin`
+			- twitter.php `twitter widget setting action`
+	- classes `ElggProject class`
+	- graphics
+	- languages
+	- lib `projects helper functions as well as the youtube api intergate funciotn`
+	- pages 
+		- categories `change the default categories page`
+		- projects
+			- blogs
+			- issues
+			- setting
+			- add.php
+			- all.php
+			- apply.php
+			- backers.php
+			- contribute.php
+			- edit.php
+			- lend.php
+			- owner.php
+			- required.php
+			- resource.php
+			- view.php
+	- vendors
+	- views 
+	- activate.php `activate the ElggProject Class`
+	- deactivate.php `deactivate the ElggProject Class`
+	- icon.php `project poster url tranformation`
+	- mainifest.xml
+	- start.php
+
 
 
 
