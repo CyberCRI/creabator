@@ -31,6 +31,62 @@ Before activate the plugin of "incubator_theme", you should activate the plugin 
 Creabator is powered by Elgg. So, before learning how to write plugins for Creabator, you should learn about how to write an Elgg plugin.
 For this part, There are already some documents in Elgg's website. So i will just paste some useful links so that you could learn from that.
 
+Code Stuctures
+===
+One important things that you should keep in mind that the plugin files could replace the default system one if there are in the same folder strutures. For example,if you want to change the header of the default page templete, you could create a files "mod/plugin_name/views/default/page/elements/header.php" which will replace the default one  "views/default/page/elements/header.php".
+
+Plugin lists for Creabator:
+Third party plugins:
+categories
+developers
+embed
+file
+htmlawed
+invitefriends
+messages
+notifications
+profile_manager
+search
+tinymce
+uservalidationbyemail
+
+Plugins that we change some of the code:
+profile
+reportedcontent
+elgg_social_login
+wiki
+
+Plugins that we develop for Creabator
+ib_index
+-graphics
+-js (slide js)
+-languages
+-pages
+	-index.php (index page content)
+-views
+	-default
+		-forms
+			-index-login.php
+		-ib_index
+			-css.php
+		-page
+			-index.php (index page templete)
+		-projects
+			-list.php(index project lists view)
+manifest.xml
+start.php 
+
+
+incubator_theme
+
+projects
+
+
+
+
+
+
+
 Userful Resources:
 ===
 Getting Started with Development:(Super Important !!! ) http://docs.elgg.org/wiki/Getting_Started_With_Development

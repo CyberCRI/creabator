@@ -3,7 +3,7 @@
  * themes chinese language file
  */
 
-$english = array(
+$fr = array(
 	'sitename'=>'Creabator',
 	'slogan'=>"Innovating Collectively",
 	'apply'=>'Apply',
@@ -155,4 +155,4 @@ $english = array(
 	'reportedcontent:this'=>'Report problem',
 );
 
-add_translation('en', $english);
+add_translation('fr', $fr);

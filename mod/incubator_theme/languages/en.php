@@ -30,8 +30,8 @@ $english = array(
 	'feedback:success'=>"Thank you for your feedback",
 	'feedback:required'=>"All fields are required",
 	'feedback:fired'=>"There was an error. Please try again.",
-	'feedback:title'=>"Subject",
-	'feedback:desc'=>"Body",
+	'feedback:title'=>'Title',
+	'feedback:desc'=>'Please provide some details',
 		
 	//message
     'messages:nomessages'=>"No news",
