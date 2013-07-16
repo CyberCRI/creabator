@@ -33,7 +33,7 @@ For this part, There are already some documents in Elgg's website. So i will jus
 
 Code Stuctures
 ===
-One important things that you should keep in mind that the plugin files could replace the default system one if there are in the same folder strutures. For example,if you want to change the header of the default page templete, you could create a files "mod/plugin_name/views/default/page/elements/header.php" which will replace the default one  "views/default/page/elements/header.php".
+One important things that you should keep in mind that the plugin files could replace the default system one if there are in the same folder strutures. For example,if you want to change the header of the default page templete, you could create a files `mod/plugin_name/views/default/page/elements/header.php` which will replace the default one  `views/default/page/elements/header.php`.
 
 Plugin lists for Creabator:
 Third party plugins:
