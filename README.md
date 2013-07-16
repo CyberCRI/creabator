@@ -58,10 +58,10 @@ One important things that you should keep in mind that the plugin files could re
 ##Plugins that we develop for Creabator##
 - ib_index
 	- graphics
-	- js (slide js)
+	- js // slide js
 	- languages
 	- pages
-		- index.php (index page content)
+		- index.php // index page content
 	- views
 		- default
 			- forms
@@ -69,9 +69,9 @@ One important things that you should keep in mind that the plugin files could re
 			- ib_index
 				- css.php
 			- page
-				- index.php (index page templete)
+				- index.php // index page templete
 			- projects
-				- list.php(index project lists view)
+				- list.php // index project lists view
 	- manifest.xml
 	- start.php 
 - incubator_theme
