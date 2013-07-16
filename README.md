@@ -37,24 +37,24 @@ One important things that you should keep in mind that the plugin files could re
 
 Plugin lists for Creabator:
 Third party plugins:
-*categories
-*developers
-*embed
-*file
-*htmlawed
-*invitefriends
-*messages
-*notifications
-*profile_manager
-*search
-*tinymce
-*uservalidationbyemail
+*categories*
+*developers*
+*embed*
+*file*
+*htmlawed*
+*invitefriends*
+*messages*
+*notifications*
+*profile_manager*
+*search*
+*tinymce*
+*uservalidationbyemail*
 
 Plugins that we change some of the code:
-*profile
-*reportedcontent
-*elgg_social_login
-*wiki
+*profile*
+*reportedcontent*
+*elgg_social_login*
+*wiki*
 
 Plugins that we develop for Creabator
 ib_index
