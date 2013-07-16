@@ -1,8 +1,10 @@
 Creativity Incubator
+======
+1. How to install?
 ====
-＃1. How to install?
 Creabator is powered by Elgg. 
-＃1.1 Install Elgg
+1.1 Install Elgg
+==
 Here is the guide of how to install Elgg:`http://docs.elgg.org/wiki/Installation`
 
 1.2 unzip the zend.zip into your webroot directory 
@@ -29,8 +31,8 @@ Before activate the plugin of `incubator_theme`, you should activate the plugin 
 Creabator is powered by Elgg. So, before learning how to write plugins for Creabator, you should learn about how to write an Elgg plugin.
 For this part, There are already some documents in Elgg's website. So i will just paste some useful links so that you could learn from that.
 
-Code Stuctures
-==
+#Code Stuctures
+
 One important things that you should keep in mind that the plugin files could replace the default system one if there are in the same folder strutures. For example,if you want to change the header of the default page templete, you could create a files `mod/plugin_name/views/default/page/elements/header.php` which will replace the default one  `views/default/page/elements/header.php`.
 
 Plugin lists for Creabator:
