@@ -37,42 +37,42 @@ One important things that you should keep in mind that the plugin files could re
 
 Plugin lists for Creabator:
 Third party plugins:
--categories
--developers
--embed
--file
--htmlawed
--invitefriends
--messages
--notifications
--profile_manager
--search
--tinymce
--uservalidationbyemail
+- categories
+- developers
+- embed
+- file
+- htmlawed
+- invitefriends
+- messages
+- notifications
+- profile_manager
+- search
+- tinymce
+- uservalidationbyemail
 
 Plugins that we change some of the code:
--profile
--reportedcontent
--elgg_social_login
--wiki
+- profile
+- reportedcontent
+- elgg_social_login
+- wiki
 
 Plugins that we develop for Creabator
 ib_index
--graphics
--js (slide js)
--languages
--pages
-	-index.php (index page content)
--views
-	-default
-		-forms
-			-index-login.php
-		-ib_index
-			-css.php
-		-page
-			-index.php (index page templete)
-		-projects
-			-list.php(index project lists view)
+- graphics
+- js (slide js)
+- languages
+- pages
+	- index.php (index page content)
+- views
+	- default
+		- forms
+			- index-login.php
+		- ib_index
+			- css.php
+		- page
+			- index.php (index page templete)
+		- projects
+			- list.php(index project lists view)
 manifest.xml
 start.php 
 
