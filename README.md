@@ -75,6 +75,55 @@ One important things that you should keep in mind that the plugin files could re
 	- manifest.xml
 	- start.php 
 - incubator_theme
+	- actions
+		-feedback.php 
+	- graphics
+	- js
+		- setwaterfall `waterfall effect for the feed`
+	- languages
+	- lib
+		- ib_ajax.php `ajax functions which include get search reslut and get feeds or projects udpate`
+	- pages
+		- avatar `change default avater layout`
+		- friends `change the default friends layout`
+		- notifications `change the default notification layout`
+		- profile `change the default profile layout`
+		- settings `change the layout of the account`
+		- about.php 
+		- contact.php
+		- faq.php
+		- feedback.php
+		- help.php
+		- jobs.php
+		- menu.php
+		- privacy.php
+		- river.php
+		- service.php
+		- signup.php
+	- views
+		- default
+			- annotation `change the default comments view`
+			- core `change the default login dropdown view`
+			- css
+			- forms
+				- comments `add comment form view`
+				- feedback.php `feedback view`
+			- incubator_theme
+			- input `change the default categories and plaintext view`
+			- page 
+				- elements `change the default header,footer logo etc view`
+				- layouts
+					- home_two_column.php `the home page layout`
+					- ib_help.php `the about,help etc pages layout`
+					- ib_two_column.php 
+					- one_column.php 'change the default one_column layout'
+				- default.php `default page templete`
+			- river `change the default response(comment) view in river`
+			- search `ajax search view`
+			- widgets `friends of and river widget view`
+	- manifest.xml
+	- start.php
+
 
 - projects
 
