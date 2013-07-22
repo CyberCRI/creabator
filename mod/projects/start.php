@@ -347,9 +347,9 @@ function projects_page_handler($page) {
 					set_input('project_guid', $page[2]);
 					include "$pages/setting/mbacker_manage.php";
 					break;
-				case "fbacker_request":
+				case "facility":
 					set_input('project_guid', $page[2]);
-					include "$pages/setting/fbacker_request.php";
+					include "$pages/setting/facility.php";
 					break;
 				case "requests":
 					set_input('project_guid', $page[2]);

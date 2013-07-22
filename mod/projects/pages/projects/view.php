@@ -32,6 +32,7 @@ $closed
 		<div id="proccess"></div>
 		<div id="task"></div>
 		<div id="rq_team"></div>
+		<div id="tool"></div>
 		
 	</div>
 	<div class="fl elgg-col-3of4" style="margin-top:50px">
@@ -103,6 +104,14 @@ $(document).ready(function(){
  <?php 
 	}
  ?>
+ <?php
+if(elgg_is_active_plugin('ib_facility')){
+ ?>
+ // require tools 	
+ 	ajax_load('view','tool');
+<?php
+   }
+?>
  
 	// require team 	
 	ajax_load('view','rq_team');

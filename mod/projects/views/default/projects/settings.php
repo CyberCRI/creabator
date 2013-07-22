@@ -52,6 +52,13 @@ if(elgg_is_active_plugin('ib_bank')){
 	
 	 );
 }
+if(elgg_is_active_plugin('ib_facility')){
+	 $stabs['Fbrequest']=array(
+				'text' => elgg_echo('Facility Setting'),
+				'href' => 'projects/setting/facility/'.$guid,
+				'priority' => 80,
+		);
+}
 
 
 foreach ($stabs as $name => $stab) {
