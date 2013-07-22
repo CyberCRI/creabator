@@ -170,7 +170,7 @@ One important things that you should keep in mind that the plugin files could re
 	- icon.php `project poster url tranformation`
 	- mainifest.xml
 	- start.php
--ib_bank
+- ib_bank
 	- actions `cancel paying action`
 	- languages
 	- lib `main functions of tranfer money etc`
