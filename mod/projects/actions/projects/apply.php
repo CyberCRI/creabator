@@ -32,7 +32,7 @@ if (($user instanceof ElggUser) && (elgg_instanceof($project,'object', 'projects
 	$name=$annotation->name;
 	if($name!='task'){
 	add_entity_relationship($user->guid, 'membership_request', $project->guid);
-	$body .= "{$CONFIG->url}projects/setting/requests/$project->guid";
+	$body .= "{$CONFIG->url}projects/setting/help/$project->guid";
 	}
 	// send message to project owner;
 	$result=notify_user($project->owner_guid, $user->getGUID(), $subject, $body);

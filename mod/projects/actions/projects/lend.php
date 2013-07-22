@@ -42,7 +42,7 @@ if (($user instanceof ElggUser) && (elgg_instanceof($project,'object', 'projects
 
 
 	add_entity_relationship($user->guid, 'fbacker_request', $project->guid);
-	$body .= "{$CONFIG->url}projects/setting/fbacker_request/$project->guid";
+	$body .= "{$CONFIG->url}projects/setting/faciligy/$project->guid";
 	// send message to project owner;
 	$result=notify_user($project->owner_guid, $user->getGUID(), $subject, $body);
 
