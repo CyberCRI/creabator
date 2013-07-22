@@ -22,7 +22,9 @@ Go the `http://www.youdomain.com/admin` and login with you admin account and the
 Attentions:
 Before activate the plugin of `incubator_theme`, you should activate the plugin of `projects` and `search`. 
 
-1.4 Localization
+1.4 unzip the paypal.zip into your app root directory
+==
+Creabator is using paypal api for crowdfunding.If you want to have the bank system for crowdfunding, you needed to unzip paypal.zip into the root directory(the same directory with the `mod`directory).And then you should apply for your paypal api account.When you get your api key, you should add your information into the `paypal/paypalfunctions.php`。
 
 
 
