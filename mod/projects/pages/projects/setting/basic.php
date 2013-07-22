@@ -15,7 +15,7 @@ $project = get_entity($project_guid);
 $title=elgg_view_title('Basic Info:');
 $vars = projects_prepare_form_vars($project);
 
-/*
+if(elgg_is_active_plugin('ib_bank')){
 $money_button=elgg_view('output/url',array(
 		'href'=>'#start',
 		'text'=>'Start',
@@ -66,12 +66,11 @@ html;
 
 
 // only the long term projects could have change to get money again
- $stage=elgg_trigger_plugin_hook('project:status', 'all',array('guid'=>$project_guid),'1');
-$amount=$project->fund_amt;
-if($stage!=4){
-	$lists= "<h2 class='grey brs pam'><span class='prm'>Goal:</span>{$amount}<span class='plm'>($)</span></h2>";
-} 
-*/
+	$amount=$project->fund_amt;
+	if($amount){
+		$lists= "<h2 class='grey brs pam'><span class='prm'>Goal:</span>{$amount}<span class='plm'>($)</span></h2>";
+	} 
+}
 
 /*
  * Twitter widget
@@ -80,16 +79,10 @@ if($stage!=4){
 
 $twitter_name=$project->twitter;
 $data_id=$project->twitter_data_id;
-$lists =elgg_view_form('projects/twitter',array(),array('guid'=>$project_guid,'twitter'=>$twitter_name,'data_id'=>$data_id));
+$lists .=elgg_view_form('projects/twitter',array(),array('guid'=>$project_guid,'twitter'=>$twitter_name,'data_id'=>$data_id));
 
 
-/*
- * MileStone setting,lanuch(2) 
- * @todo add the form 
- */ 
-if($stage==2){
-	$lists .=elgg_view_form('projects/basic',array(),$vars);
-}
+
 
 
 $content=elgg_view('projects/settings',array('project_guid'=>$project_guid,'content'=>$lists));

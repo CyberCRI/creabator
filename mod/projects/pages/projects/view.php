@@ -28,6 +28,7 @@ $closed
 		<div class="pam dashed f1h grey center">
 		 We are looking for:
 		</div>
+		<div id="countdown"></div>
 		<div id="proccess"></div>
 		<div id="task"></div>
 		<div id="rq_team"></div>
@@ -92,7 +93,16 @@ $(document).ready(function(){
 
 	//proccess 
 	   ajax_load('view','proccess'); 
-		
+ <?php
+  $start_getmoney=$project->get_money; 
+  //only started count down when it started
+  if ($start_getmoney==1&&elgg_is_active_plugin('ib_bank')){
+  ?>
+	//count down 
+ 	 ajax_load('view','countdown');
+ <?php 
+	}
+ ?>
  
 	// require team 	
 	ajax_load('view','rq_team');

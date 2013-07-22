@@ -51,7 +51,53 @@ function projects_prepare_form_vars($project = null) {
 
 
 
+//remain_days for the project to launch
+function remain_days($project){
+    
+    
+    $days=30;
+    // only start when the user choese to get money
+    $time=$project->start_time;
+    $diff = time() - (int)$time;
+    $day =86400;
+    return $days-floor($diff/$day);
+    
+}
 
+// freeze the project when the day less than 0
+function freeze_project($project){
+    $fund_exit=$project->fund_exit;
+    $fund_num=$project->fund_num;
+    $m_bp_total = $project->getAnnotationsSum('m_state');
+    $m_proccess=number_format((($fund_exit+$m_bp_total)/$fund_num)*100);
+    
+    $remain_days=remain_days($project);
+    if ($remain_days<0 && $m_proccess<100){
+    //  frozen:3,
+        $project->get_money = 3;
+        return TRUE;
+         
+    }else{
+        return false;
+    }
+    
+}
+
+
+// refresh project 
+function refresh_project($project){
+    if (isadminloggedin()){
+        $project->refresh_time=time();
+        //refresh:4
+        $project->get_money = 4;
+        if ($project->save()){
+        system_message('Refresh Success!');
+        }else{
+            register_error('Refress Failed.');
+        }
+    }
+    
+}
 
 
 /* Get related objects base on the tags
@@ -142,8 +188,8 @@ function Undone_contribute($guid,$name){
 }
 
 // function for the youtube api
-// you could register you account in https://developers.google.com/youtube/
-$clientLibraryPath = '/you/path/to/the/Zend/library/';
+
+$clientLibraryPath = '/home/wiseru/public_html/creabator.org/Zend/library/';
 $oldPath = set_include_path(get_include_path() . PATH_SEPARATOR . $clientLibraryPath);
 require_once 'Zend/Loader.php';
 Zend_Loader::loadClass('Zend_Gdata_YouTube');
@@ -152,8 +198,8 @@ Zend_Loader::loadClass('Zend_Gdata_App_Exception');
 session_start();
 setLogging('on');
 generateUrlInformation();
-$_SESSION['developerKey'] = 'you developerKey';
-$_SESSION['sessionToken']='you session Token';
+$_SESSION['developerKey'] = 'AI39si6kRKUia9pIa5shfm9ANGiq6H9vZw0rIcHnsyaGkShgmpgRYw47cH8UyhlCZ2bgwu2jjJi_4PunBTJG8OJ2RMr8MPrIcQ';
+$_SESSION['sessionToken']='1/eBwlQ9TsrJ5mQ-BZTmE3NGa-ATGMSeyB3UykRm7yAIk';
 function setLogging($loggingOption, $maxLogItems = 10)
 {
     switch ($loggingOption) {

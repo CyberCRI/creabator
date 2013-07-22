@@ -25,7 +25,18 @@ function projects_init() {
 	elgg_register_action('projects/updates/delete', "$action_path/projects/updates/delete.php");
 	elgg_register_action('projects/blogs/delete', "$action_path/projects/blogs/delete.php");
   	
-  
+   if(elgg_is_active_plugin('ib_bank')){
+         //start to get money
+	elgg_register_action('projects/getmoney', "$action_path/projects/getmoney.php");
+		// backup action
+	elgg_register_action('backup/add', "$action_path/backup/add.php");
+	// Register a URL handler for projects checkout
+	elgg_register_entity_url_handler('object', 'backup', 'backup_url');
+	elgg_register_ajax_view('ajax/view/countdown');
+
+   }
+	   //start to get money
+	elgg_register_action('projects/getmoney', "$action_path/projects/getmoney.php");
 	
 	// twitter action,save the account in the twiiter widget
 	elgg_register_action('projects/twitter', "$action_path/projects/twitter.php");
@@ -141,13 +152,7 @@ function projects_init() {
 
 	// Register a URL handler for projects blogs
 	elgg_register_entity_url_handler('object', 'blogs', 'blogs_url');
-
-	// Register a URL handler for projects issues
-	elgg_register_entity_url_handler('object', 'issue', 'issues_url');
 	
-	// Register a URL handler for projects checkout
-	elgg_register_entity_url_handler('object', 'backup', 'backup_url');
-
 	// Register entity type for search
 	elgg_register_entity_type('object', 'projects');
 
@@ -168,7 +173,6 @@ function projects_init() {
     elgg_register_ajax_view('ajax/view/twitter');
     elgg_register_ajax_view('ajax/view/comment');
     elgg_register_ajax_view('ajax/view/proccess');
-    elgg_register_ajax_view('ajax/view/countdown');
     elgg_register_ajax_view('ajax/view/rewards');
     elgg_register_ajax_view('ajax/view/team');
     elgg_register_ajax_view('ajax/view/related');
@@ -192,8 +196,6 @@ function projects_init() {
     elgg_register_js('angular','https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js','head');
 
    
-  
-
 }
 
 function project_categories_page_handler() {
@@ -231,7 +233,6 @@ function check_project_view_permission($hook, $type, $returnvalue, $params){
  *  View project:        projects/view/<guid>/<title>
  *  New project:         projects/add/<guid> (container: user, project, parent)
  *  Edit project:        projects/edit/<guid>
-
  *
  * Title is ignored
  *
@@ -298,12 +299,22 @@ function projects_page_handler($page) {
 			set_input('guid', $page[1]);
 			include "$pages/apply.php";
 			break;
-		case "lend":
 		
+		case "backup":
+			$project=get_entity($page[1]);
+                        $project_stage=$project->get_money;
+			if($project_stage==1){
+			set_input('guid', $page[1]);
+			include "$pages/backup.php";
+			}else{
+			 register_error('Could not backup at this time');
+			 forward($project->getURL());
+			}
+			break;
+		case "lend":	
 			set_input('guid', $page[1]);
 			include "$pages/lend.php";
 			break;
-
 		case "setting":
 			gatekeeper();
 			$project=get_entity($page[2]);
@@ -331,6 +342,10 @@ function projects_page_handler($page) {
 				case "media":
 					set_input('project_guid', $page[2]);
 					include "$pages/setting/media.php";
+					break;
+				case "mbacker_manage":
+					set_input('project_guid', $page[2]);
+					include "$pages/setting/mbacker_manage.php";
 					break;
 				case "fbacker_request":
 					set_input('project_guid', $page[2]);
@@ -364,7 +379,10 @@ function projects_page_handler($page) {
 			set_input('project_guid', $page[1]);
 			include "$pages/backers.php";
 			break;
-			
+		case "checkout":
+			set_input('backup_guid', $page[1]);
+			include "$pages/checkout.php";
+				break;	
 		case "issues":
 				switch ($page[1]){
 					case "all":
@@ -471,11 +489,6 @@ function project_url($entity) {
 function blogs_url($entity) {
 	global $CONFIG;
 	return $CONFIG->url . "projects/blogs/view/" . $entity->getGUID();
-}
-
-function issues_url($entity) {
-	global $CONFIG;
-	return $CONFIG->url . "projects/issues/view/" . $entity->getGUID();
 }
 
 function backup_url($entity) {

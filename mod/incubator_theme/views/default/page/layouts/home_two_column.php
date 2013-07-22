@@ -65,6 +65,14 @@ if(elgg_is_active_plugin('projects')){
 	);
 }
 
+if(elgg_is_active_plugin('ib_bank')){
+	$sidebar_tabs['deposit'] = array(
+			'text' => elgg_echo('Deposit'),
+			'href' => 'bank/deposit/'.$user->username,
+			'priority' => 1000,
+	);
+}
+
 
 foreach ($sidebar_tabs as $name => $sidebar_tab) {
 	$sidebar_tab['name'] = $name;

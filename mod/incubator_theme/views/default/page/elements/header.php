@@ -6,7 +6,8 @@
 
 echo elgg_view('page/elements/header_logo', $vars);
 if(!elgg_is_logged_in()){
-	echo elgg_view('output/url',array('href'=>'/','text'=>elgg_view_icon('user').elgg_echo('login'),'class'=>'fr mtm mrs','style'=>'color:#999'));
+	echo elgg_view('output/url',array('href'=>'/register','text'=>elgg_echo('SignUp'),'class'=>'fr mtm mrs','style'=>'color:#999'));
+	echo elgg_view('output/url',array('href'=>'/login','text'=>elgg_echo('Login'),'class'=>'fr mtm mrs','style'=>'color:#999'));
 }else{
 	$site_url = elgg_get_site_url();
 	$user=elgg_get_logged_in_user_entity();
@@ -23,11 +24,6 @@ if(!elgg_is_logged_in()){
 						'href' => 'activity',
 						'priority' => 200,
 				),
-		
-			
-			
-				
-		
 		);
 		
 		if(elgg_is_active_plugin('projects')){
@@ -60,9 +56,6 @@ if(!elgg_is_logged_in()){
 		
 	
 		}
-	
-
-	
 	
 	// right menu
 	
@@ -99,7 +92,19 @@ if(!elgg_is_logged_in()){
 			'priority'=>2000,
 	);
 	
+	// money tab,only appear when the ib_bank plugin activate
+	if(elgg_is_active_plugin('ib_bank')){
+	 $money_img=elgg_view('output/img',array('src'=>elgg_get_site_url().'mod/incubator_theme/graphics/dollar.png','title'=> elgg_echo('menu:dollar')));
+     $htabs['deposit']=array(
+			'text' =>$money_img,
+			'href' => 'bank/balence/'.$user->username,
+			'item_class'=>'fr w50',
+			'priority'=>1900,
 	
+	 );
+	}
+
+
 	$htabs['logout']=array(
 			'text' =>elgg_echo('menu:logout'),
 			'href' => '/action/logout',

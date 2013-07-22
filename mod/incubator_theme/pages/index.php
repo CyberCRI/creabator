@@ -45,12 +45,17 @@ $explore=elgg_view('output/url', array(
 		'style'=>'font-size:1.2em;'
 ));
 $howitwork=elgg_view('output/url',array('href'=>'#','text'=>elgg_echo('How it works?'),'class'=>'pam'));
+$login_button=elgg_view('output/url',array('href'=>'','text'=>elgg_echo(''),'class'=>'elgg-button elgg-button-submit'));
+
 $body= <<<HTML
 <div id="index">
 <div id="index-header">
 	<div class="wrapper">
 	<div class="fl w200 mal"  >
 	$logo
+		<div class="fr">
+			$login_button
+		</div>
 	</div>
 	<div style="" class="w500 mal fr">
 	$login
