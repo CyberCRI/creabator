@@ -178,7 +178,8 @@ One important things that you should keep in mind that the plugin files could re
 	- views
 	- manifest.xml
 	- start.php
-
+- ib_facility
+	- start.php `empty functions with activation trigger for controlling the display for the facility funtions`
 
 
 
