@@ -44,6 +44,14 @@ $stabs=array(
 		),
 
 );
+if(elgg_is_active_plugin('ib_bank')){
+	 $stabs['Mbackers']=array(
+			'text' =>elgg_echo('Funding Backers'),
+			'href' => 'projects/setting/money_backers/'.$guid,
+			'priority'=>600,
+	
+	 );
+}
 
 
 foreach ($stabs as $name => $stab) {

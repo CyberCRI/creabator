@@ -359,6 +359,10 @@ function projects_page_handler($page) {
 					set_input('project_guid', $page[2]);
 					include "$pages/setting/remove_backer.php";
 					break;
+				case "money_backers":
+					set_input('project_guid', $page[2]);
+					include "$pages/setting/money_backers.php";
+					break;
 				
 			default:
 			return false;
