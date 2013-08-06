@@ -13,17 +13,18 @@ $description = elgg_extract('description', $vars, '');
 $contribute = elgg_extract('contribute', $vars, '');
 $tags=elgg_extract('tags', $vars, '');
 ?>
+<div class="grey brm pam">Open Issue is the place that help you getting help from the crowd. In order to reward students or citizen who will help you, You should announce that you will <b>reward</b> them with a <b>certificate</b> with your signature to prove they actually helping you to finish which task so that they could include it in their CV.</div>
 	<div>
 		<label><?php echo elgg_echo('title'); ?></label>
 		<?php echo elgg_view('input/text', array('name' => 'title','value'=>$title)); ?>
 	</div>
 	<div>
 		<label><?php echo elgg_echo('description'); ?></label>
-		<?php echo elgg_view('input/plaintext', array('name' => 'description','value'=>$description)); ?>
+		<?php echo elgg_view('input/longtext', array('name' => 'description','value'=>$description)); ?>
 	</div>
 	<div>
 		<label><?php echo elgg_echo('How to Contribute?'); ?></label>
-		<?php echo elgg_view('input/plaintext', array('name' => 'contribute','value'=>$contribute)); ?>
+		<?php echo elgg_view('input/plaintext', array('name' => 'contribute','value'=>$contribute,'class'=>'h100')); ?>
 	</div>
 	<div>
 		<label><?php echo elgg_echo('tags'); ?></label>

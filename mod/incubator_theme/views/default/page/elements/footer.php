@@ -47,6 +47,15 @@
 		'is_trusted' => true,
 		));
 	?></li>
+
+		<li>
+	<?php 
+	echo elgg_view('output/url', array(
+		'href' => 'https://github.com/CyberCRI/creabator',
+		'text' => elgg_echo('Fork Us On Github'),
+		'is_trusted' => true,
+		));
+	?></li>
 	
 	  <?php echo elgg_view('output/url', array(
 		'href' => 'http://elgg.org',

@@ -4,6 +4,7 @@
  */
 
 //$url = elgg_get_site_url() . 'search';
+/*
 echo elgg_view_form('projects/search', array(
 	'action' => '/',
 	'method' => 'get',
@@ -13,5 +14,8 @@ echo elgg_view_form('projects/search', array(
 	'id'=>'s_f',
 	
 ), $vars); 
+*/
+echo elgg_view('search/search_box', array('class' => 'elgg-search-header ib-search'));
+
 
 

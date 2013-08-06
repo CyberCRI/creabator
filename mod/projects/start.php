@@ -153,8 +153,11 @@ function projects_init() {
 	// Register a URL handler for projects blogs
 	elgg_register_entity_url_handler('object', 'blogs', 'blogs_url');
 	
+	elgg_register_entity_url_handler('object', 'issue', 'issue_url');
+	
 	// Register entity type for search
 	elgg_register_entity_type('object', 'projects');
+	elgg_register_entity_type('object','issue');
 
 	//add the featured link so that the admin could feature the project
 	elgg_register_plugin_hook_handler('register', 'menu:entity', 'projects_entity_menu_setup');
@@ -495,6 +498,10 @@ function blogs_url($entity) {
 	return $CONFIG->url . "projects/blogs/view/" . $entity->getGUID();
 }
 
+function issue_url($entity) {
+	global $CONFIG;
+	return $CONFIG->url . "projects/issues/view/" . $entity->getGUID();
+}
 function backup_url($entity) {
 	global $CONFIG;
 	return $CONFIG->url . "projects/checkout/" . $entity->getGUID();

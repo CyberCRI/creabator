@@ -12,6 +12,8 @@ $english = array(
 	 */
 
 	'wiki' => "Wiki",
+	'item:object:page' => 'Project Sub-Wiki',
+	'item:object:page_top' => 'Project Top-Wiki',
 	'wiki:owner' => "%s's wiki",
 	'wiki:all' => "Top-level wiki pages",
 	'wiki:add' => "Create a page",

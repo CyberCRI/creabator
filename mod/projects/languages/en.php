@@ -68,8 +68,9 @@ $english = array(
 	'projects:river:item' => 'an item',
 	'river:join:object'=>'%s joined %s',
 
-	'item:object:projects' => 'projects',
+	'item:object:projects' => 'Projects',
     'projects:numbertodisplay'=>"Limit Numbers",
+    'item:object:issue' => 'Issues',
 	
     /**
      *  Projects Setting

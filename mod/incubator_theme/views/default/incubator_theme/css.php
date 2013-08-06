@@ -16,6 +16,11 @@ padding-top:100px;
 
 }
 
+.ib-search{
+position: absolute;
+right: 270px;
+top: -2px;
+}
 .wrapper{width:1024px;overflow:hidden;margin:0 auto;padding:0;}
 
 ul.elgg-list{
