@@ -12,6 +12,7 @@
        elgg_register_page_handler('jobs', 'jobs_page_handler');
        elgg_register_page_handler('faq', 'faq_page_handler');
        elgg_register_page_handler('login', 'login_page_handler');
+       elgg_register_page_handler('users', 'users_page_handler');
     
      
     // replace the default js
@@ -81,6 +82,11 @@ function login_page_handler() {
 	include(dirname(dirname(__FILE__)) . "/incubator_theme/pages/login.php");
 	return true;
 }
+function users_page_handler() {
+	include(dirname(dirname(__FILE__)) . "/incubator_theme/pages/users.php");
+	return true;
+}
+
 function service_page_handler() {
 	include(dirname(dirname(__FILE__)) . "/incubator_theme/pages/service.php");
 	return true;

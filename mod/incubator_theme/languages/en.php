@@ -22,7 +22,8 @@ $english = array(
 	'menu:all'=>'Explore interesting projects',
 	'menu:index'=>'All news',
 	'menu:contribute'=>'Contribute',
-	
+	'menu:users'=>'Users',
+		
 
 	
 	//feedback

@@ -16,6 +16,7 @@ if(!elgg_is_logged_in()){
 	$explore_img=elgg_view('output/img',array('src'=>elgg_get_site_url().'mod/incubator_theme/graphics/explore.png','title'=> elgg_echo('menu:all')));
 	$create_img=elgg_view('output/img',array('src'=>elgg_get_site_url().'mod/incubator_theme/graphics/create.png','title'=> elgg_echo('menu:create')));
 	$contribute_img=elgg_view('output/img',array('src'=>elgg_get_site_url().'mod/incubator_theme/graphics/contribute.png','title'=> elgg_echo('menu:contribute')));
+	$users_img=elgg_view('output/img',array('src'=>elgg_get_site_url().'mod/incubator_theme/graphics/users.png','title'=> elgg_echo('menu:users')));
 	
 		//header left menu
 		$htabs=array(
@@ -53,6 +54,13 @@ if(!elgg_is_logged_in()){
 						'priority' => 600,
 		
 				);
+		$htabs['users'] = array(
+				'text' => $users_img,
+				'href' => 'users',
+				'title'=>'find interesting people in Creabator',
+				'priority' => 600,
+		
+		);
 		
 	
 		}
